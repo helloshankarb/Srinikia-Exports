@@ -2,15 +2,12 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Menu, X, Facebook, Twitter, Instagram, Linkedin, Youtube, Phone, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
-  const logoUrl = "https://firebasestorage.googleapis.com/v0/b/studio-2215204146-270ef.firebasestorage.app/o/WhatsApp_Image_2026-03-01_at_10.37.55_AM-removebg-preview.png?alt=media&token=50f1f021-598f-4b00-ac36-db16ebb06120";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,6 +24,13 @@ export function Navbar() {
     { name: "TECHNOLOGY", href: "#why-us" },
     { name: "CONTACT US", href: "#contact" },
   ];
+
+  const Logo = () => (
+    <div className="flex flex-col items-start leading-none pl-3 border-l-4 border-secondary">
+      <span className="text-primary font-black text-xl md:text-2xl tracking-tighter">SHREE BHUMI</span>
+      <span className="text-secondary font-bold text-[10px] md:text-xs tracking-[0.2em] mt-0.5">NATURE&apos;S BEST</span>
+    </div>
+  );
 
   return (
     <>
@@ -67,16 +71,8 @@ export function Navbar() {
         )}
       >
         <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-          <Link href="/" className="relative h-12 w-40 md:h-16 md:w-60 bg-white/95 p-2 flex items-center justify-center">
-            <div className="relative w-full h-full">
-              <Image
-                src={logoUrl}
-                alt="Shree Bhumi Natures Best Pvt Ltd"
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
+          <Link href="/" className="bg-white/95 px-4 py-2 flex items-center justify-center min-w-[200px]">
+            <Logo />
           </Link>
 
           {/* Desktop Nav */}
@@ -110,15 +106,8 @@ export function Navbar() {
         )}
       >
         <div className="container mx-auto px-6 py-5 flex items-center justify-between border-b border-white/10">
-          <div className="relative h-10 w-32 bg-white/95 p-1 flex items-center justify-center">
-            <div className="relative w-full h-full">
-              <Image
-                src={logoUrl}
-                alt="Shree Bhumi Logo"
-                fill
-                className="object-contain"
-              />
-            </div>
+          <div className="bg-white/95 px-4 py-2 flex items-center justify-center">
+            <Logo />
           </div>
           <button
             className="text-white p-2"

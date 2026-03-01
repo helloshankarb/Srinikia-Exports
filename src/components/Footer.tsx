@@ -7,7 +7,13 @@ import { Mail, Phone, MapPin, ChevronRight } from "lucide-react";
 export function Footer() {
   const currentYear = new Date().getFullYear();
   const bgImageUrl = "https://i.ibb.co/v667tdY6/image.png";
-  const logoUrl = "https://firebasestorage.googleapis.com/v0/b/studio-2215204146-270ef.firebasestorage.app/o/WhatsApp_Image_2026-03-01_at_10.37.55_AM-removebg-preview.png?alt=media&token=50f1f021-598f-4b00-ac36-db16ebb06120";
+
+  const Logo = () => (
+    <div className="flex flex-col items-start leading-none pl-3 border-l-4 border-secondary">
+      <span className="text-primary font-black text-xl md:text-2xl tracking-tighter">SHREE BHUMI</span>
+      <span className="text-secondary font-bold text-[10px] md:text-xs tracking-[0.2em] mt-0.5">NATURE&apos;S BEST</span>
+    </div>
+  );
 
   return (
     <footer className="relative text-white pt-20 pb-10 overflow-hidden">
@@ -27,15 +33,8 @@ export function Footer() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
           <div className="space-y-6">
-            <Link href="/" className="relative h-24 w-full max-w-[240px] block bg-white/95 p-3 flex items-center justify-center">
-              <div className="relative w-full h-full">
-                <Image
-                  src={logoUrl}
-                  alt="Shree Bhumi Logo"
-                  fill
-                  className="object-contain"
-                />
-              </div>
+            <Link href="/" className="bg-white/95 p-4 flex items-center justify-center inline-block">
+              <Logo />
             </Link>
             <p className="text-white/80 leading-relaxed text-sm">
               Global leaders in premium Indian food exports. Dedicated to quality, purity, and sustainable farming practices that bridge the gap between farms and the world.
