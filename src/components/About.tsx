@@ -62,17 +62,17 @@ export function About() {
               </div>
               
               <div className="lg:w-1/2 relative">
-                <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
+                <div className="relative z-10 rounded-3xl overflow-hidden shadow-xl aspect-[4/3]">
                   <Image 
                     src={section.image} 
                     alt={section.title} 
-                    width={800} 
-                    height={600} 
+                    fill
                     className="object-cover hover:scale-105 transition-transform duration-700"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     data-ai-hint={section.hint}
                   />
                 </div>
-                <div className={`absolute -bottom-10 ${section.reversed ? '-left-10' : '-right-10'} w-64 h-64 bg-secondary rounded-full -z-0 opacity-20 blur-3xl`} />
+                <div className={`absolute -bottom-10 ${section.reversed ? '-left-10' : '-right-10'} w-64 h-64 bg-secondary rounded-full -z-0 opacity-10 blur-3xl`} />
               </div>
             </div>
           </div>
