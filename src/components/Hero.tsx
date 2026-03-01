@@ -32,13 +32,17 @@ const slides = [
 export function Hero() {
   const [current, setCurrent] = useState(0);
   const [animating, setAnimating] = useState(false);
+  const [gridDelays, setGridDelays] = useState<number[]>([]);
 
   useEffect(() => {
+    // Generate stable random delays only on the client to avoid hydration mismatch
+    setGridDelays(Array.from({ length: 100 }, () => Math.random() * 0.5));
+
     const timer = setInterval(() => {
       nextSlide();
     }, 7000);
     return () => clearInterval(timer);
-  }, [current]);
+  }, []);
 
   const nextSlide = () => {
     if (animating) return;
@@ -70,12 +74,12 @@ export function Hero() {
         >
           {/* Grid Reveal Effect */}
           <div className="absolute inset-0 grid grid-cols-10 grid-rows-10 z-20 pointer-events-none">
-            {index === current && Array.from({ length: 100 }).map((_, i) => (
+            {index === current && gridDelays.length > 0 && gridDelays.map((delay, i) => (
               <div 
                 key={i} 
                 className="bg-black/10 animate-grid-reveal"
                 style={{ 
-                  animationDelay: `${Math.random() * 0.5}s`,
+                  animationDelay: `${delay}s`,
                   opacity: 0
                 }}
               />
