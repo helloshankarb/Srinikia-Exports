@@ -4,7 +4,6 @@ import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const slides = [
@@ -103,7 +102,7 @@ export function Hero() {
       {/* Centered Content */}
       <div className="relative z-30 h-full flex flex-col items-center justify-center text-center px-6">
         <div key={`text-${current}`} className="flex flex-col items-center w-full max-w-6xl">
-          <span className="text-secondary text-xs sm:text-sm md:text-xl font-bold tracking-[0.4em] uppercase mb-4 md:mb-6 animate-text-reveal">
+          <span className="text-white/70 text-xs sm:text-sm md:text-xl font-bold tracking-[0.4em] uppercase mb-4 md:mb-6 animate-text-reveal">
             {slides[current].welcome}
           </span>
           
@@ -112,14 +111,12 @@ export function Hero() {
           </h1>
 
           <div className="animate-text-reveal [animation-delay:0.3s] w-full sm:w-auto">
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="rounded-none border-2 border-secondary text-secondary bg-transparent hover:bg-secondary hover:text-primary px-8 md:px-16 h-14 md:h-16 text-sm sm:text-lg md:text-xl font-black transition-all uppercase tracking-tighter w-full sm:w-auto"
-              asChild
+            <Link 
+              href="#contact" 
+              className="boton-elegante no-underline"
             >
-              <Link href="#contact">Contact Us Now</Link>
-            </Button>
+              Explore
+            </Link>
           </div>
         </div>
       </div>
@@ -154,7 +151,7 @@ export function Hero() {
             }}
             className={cn(
               "h-1.5 transition-all duration-300 rounded-none",
-              i === current ? "w-12 md:w-24 bg-secondary" : "w-4 md:w-6 bg-white/20 hover:bg-white/50"
+              i === current ? "w-12 md:w-24 bg-white" : "w-4 md:w-6 bg-white/20 hover:bg-white/50"
             )}
           />
         ))}
