@@ -27,13 +27,15 @@ export function Footer() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
           <div className="space-y-6">
-            <Link href="/" className="relative h-20 w-full max-w-[240px] block">
-              <Image
-                src={logoUrl}
-                alt="Shree Bhumi Logo"
-                fill
-                className="object-contain object-left"
-              />
+            <Link href="/" className="relative h-24 w-full max-w-[240px] block bg-white/95 p-3 flex items-center justify-center">
+              <div className="relative w-full h-full">
+                <Image
+                  src={logoUrl}
+                  alt="Shree Bhumi Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
             </Link>
             <p className="text-white/80 leading-relaxed text-sm">
               Global leaders in premium Indian food exports. Dedicated to quality, purity, and sustainable farming practices that bridge the gap between farms and the world.

@@ -67,14 +67,16 @@ export function Navbar() {
         )}
       >
         <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-          <Link href="/" className="relative h-12 w-40 md:h-14 md:w-56">
-            <Image
-              src={logoUrl}
-              alt="Shree Bhumi Natures Best Pvt Ltd"
-              fill
-              className="object-contain"
-              priority
-            />
+          <Link href="/" className="relative h-12 w-40 md:h-16 md:w-60 bg-white/95 p-2 flex items-center justify-center">
+            <div className="relative w-full h-full">
+              <Image
+                src={logoUrl}
+                alt="Shree Bhumi Natures Best Pvt Ltd"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
           </Link>
 
           {/* Desktop Nav */}
@@ -108,13 +110,15 @@ export function Navbar() {
         )}
       >
         <div className="container mx-auto px-6 py-5 flex items-center justify-between border-b border-white/10">
-          <div className="relative h-10 w-32">
-            <Image
-              src={logoUrl}
-              alt="Shree Bhumi Logo"
-              fill
-              className="object-contain"
-            />
+          <div className="relative h-10 w-32 bg-white/95 p-1 flex items-center justify-center">
+            <div className="relative w-full h-full">
+              <Image
+                src={logoUrl}
+                alt="Shree Bhumi Logo"
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
           <button
             className="text-white p-2"
