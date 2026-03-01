@@ -2,14 +2,13 @@
 "use client";
 
 import React from 'react';
-import { Sprout, LayoutGrid, Timer, Award, Package } from 'lucide-react';
+import { Sprout, LayoutGrid, Timer, Award } from 'lucide-react';
 
 const features = [
   { title: "Farming & Production Chain", icon: Sprout },
   { title: "Categories & Types", icon: LayoutGrid },
   { title: "Processing Technique", icon: Timer },
   { title: "Ageing", icon: Award },
-  { title: "Packaging", icon: Package },
 ];
 
 export function Stats() {
