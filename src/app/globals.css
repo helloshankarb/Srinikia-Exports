@@ -10,9 +10,9 @@
     --card-foreground: 152 40% 10%;
     --popover: 0 0% 100%;
     --popover-foreground: 152 40% 10%;
-    --primary: 152 100% 20%; /* Deep Green matching the screenshot */
+    --primary: 152 100% 20%; /* Deep Green */
     --primary-foreground: 0 0% 100%;
-    --secondary: 75 90% 50%; /* Lime Green for highlights/separators */
+    --secondary: 75 90% 50%; /* Lime Green */
     --secondary-foreground: 152 40% 10%;
     --muted: 120 20% 90%;
     --muted-foreground: 152 25% 40%;
@@ -28,7 +28,7 @@
     --chart-3: 145 80% 40%;
     --chart-4: 160 65% 60%;
     --chart-5: 180 75% 55%;
-    --radius: 0.5rem;
+    --radius: 0; /* Set global radius to 0 for sharp edges */
   }
 }
 

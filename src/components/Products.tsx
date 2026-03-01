@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -87,12 +86,12 @@ export function Products() {
 
         <Tabs defaultValue="All" className="w-full" onValueChange={setActiveTab}>
           <div className="flex justify-center mb-12">
-            <TabsList className="bg-muted p-1 rounded-full h-auto flex-wrap">
+            <TabsList className="bg-muted p-1 rounded-none h-auto flex-wrap">
               {categories.map(cat => (
                 <TabsTrigger 
                   key={cat} 
                   value={cat} 
-                  className="rounded-full px-8 py-2.5 data-[state=active]:bg-primary data-[state=active]:text-white transition-all"
+                  className="rounded-none px-8 py-2.5 data-[state=active]:bg-primary data-[state=active]:text-white transition-all"
                 >
                   {cat}
                 </TabsTrigger>
@@ -103,7 +102,7 @@ export function Products() {
           <TabsContent value={activeTab} className="mt-0">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
               {filteredProducts.map((product, idx) => (
-                <div key={idx} className="group bg-background rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-border/50">
+                <div key={idx} className="group bg-background rounded-none overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-border/50">
                   <div className="relative h-72 overflow-hidden">
                     <Image 
                       src={product.image} 
@@ -113,7 +112,7 @@ export function Products() {
                       data-ai-hint={product.hint}
                     />
                     <div className="absolute top-4 left-4">
-                      <Badge className="bg-secondary text-primary hover:bg-secondary">{product.category}</Badge>
+                      <Badge className="bg-secondary text-primary hover:bg-secondary rounded-none">{product.category}</Badge>
                     </div>
                   </div>
                   <div className="p-8">
@@ -123,11 +122,11 @@ export function Products() {
                     <div className="flex gap-4">
                       <Dialog>
                         <DialogTrigger asChild>
-                          <Button className="flex-1 bg-primary hover:bg-primary/90">
+                          <Button className="flex-1 bg-primary hover:bg-primary/90 rounded-none">
                             Enquire Now
                           </Button>
                         </DialogTrigger>
-                        <DialogContent className="sm:max-w-[500px]">
+                        <DialogContent className="sm:max-w-[500px] rounded-none">
                           <DialogHeader>
                             <DialogTitle className="text-2xl text-primary">Product Enquiry</DialogTitle>
                             <DialogDescription>
@@ -138,23 +137,23 @@ export function Products() {
                             <div className="grid grid-cols-2 gap-4">
                               <div className="space-y-2">
                                 <label className="text-sm font-medium">Full Name</label>
-                                <Input placeholder="John Doe" />
+                                <Input className="rounded-none" placeholder="John Doe" />
                               </div>
                               <div className="space-y-2">
                                 <label className="text-sm font-medium">Email</label>
-                                <Input type="email" placeholder="john@example.com" />
+                                <Input className="rounded-none" type="email" placeholder="john@example.com" />
                               </div>
                             </div>
                             <div className="space-y-2">
                               <label className="text-sm font-medium">Estimated Quantity (KG/Ton)</label>
-                              <Input placeholder="e.g. 500 KG" />
+                              <Input className="rounded-none" placeholder="e.g. 500 KG" />
                             </div>
                             <div className="space-y-2">
                               <label className="text-sm font-medium">Special Requirements</label>
-                              <Textarea placeholder="Any specific packing or shipping needs?" rows={4} />
+                              <Textarea className="rounded-none" placeholder="Any specific packing or shipping needs?" rows={4} />
                             </div>
                             <DialogFooter>
-                              <Button type="submit" className="w-full bg-secondary text-primary hover:bg-primary hover:text-white">
+                              <Button type="submit" className="w-full bg-secondary text-primary hover:bg-primary hover:text-white rounded-none">
                                 Send Enquiry
                               </Button>
                             </DialogFooter>
@@ -162,7 +161,7 @@ export function Products() {
                         </DialogContent>
                       </Dialog>
                       
-                      <Button variant="outline" size="icon" className="border-primary/20 text-primary hover:bg-primary hover:text-white">
+                      <Button variant="outline" size="icon" className="border-primary/20 text-primary hover:bg-primary hover:text-white rounded-none">
                         <Info className="w-4 h-4" />
                       </Button>
                     </div>

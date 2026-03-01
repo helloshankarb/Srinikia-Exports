@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from "next/image";
@@ -62,7 +61,7 @@ export function About() {
               </div>
               
               <div className="lg:w-1/2 relative">
-                <div className="relative z-10 rounded-3xl overflow-hidden shadow-xl aspect-[4/3]">
+                <div className="relative z-10 rounded-none overflow-hidden shadow-xl aspect-[4/3]">
                   <Image 
                     src={section.image} 
                     alt={section.title} 
@@ -107,15 +106,15 @@ export function WhyChooseUs() {
             </div>
           </div>
           <div className="lg:w-1/2 grid grid-cols-2 gap-6">
-            <div className="bg-white/5 p-10 rounded-3xl border border-white/10 hover:bg-white/10 transition-colors">
+            <div className="bg-white/5 p-10 rounded-none border border-white/10 hover:bg-white/10 transition-colors">
               <h4 className="text-secondary text-5xl font-bold mb-4">24/7</h4>
               <p className="text-white/60">Export Logistics Support</p>
             </div>
-            <div className="bg-white/5 p-10 rounded-3xl border border-white/10 hover:bg-white/10 transition-colors">
+            <div className="bg-white/5 p-10 rounded-none border border-white/10 hover:bg-white/10 transition-colors">
               <h4 className="text-secondary text-5xl font-bold mb-4">100%</h4>
               <p className="text-white/60">Natural Ingredients</p>
             </div>
-            <div className="col-span-2 bg-secondary p-10 rounded-3xl text-primary flex items-center justify-between">
+            <div className="col-span-2 bg-secondary p-10 rounded-none text-primary flex items-center justify-between">
               <div>
                 <h4 className="text-3xl font-bold mb-2">Global Network</h4>
                 <p className="text-primary/70">Connecting 25+ Countries</p>

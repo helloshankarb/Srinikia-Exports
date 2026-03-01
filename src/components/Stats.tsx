@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -18,7 +17,7 @@ export function Stats() {
           {features.map((item, i) => (
             <div 
               key={i} 
-              className="group relative w-[280px] h-[200px] rounded-[24px] bg-white p-6 border-2 border-border transition-all duration-500 ease-out overflow-visible hover:border-primary hover:shadow-[0_10px_30px_-5px_rgba(0,90,43,0.15)] flex flex-col items-center justify-center text-center cursor-pointer"
+              className="group relative w-[280px] h-[200px] rounded-none bg-white p-6 border-2 border-border transition-all duration-500 ease-out overflow-visible hover:border-primary hover:shadow-[0_10px_30px_-5px_rgba(0,90,43,0.15)] flex flex-col items-center justify-center text-center cursor-pointer"
             >
               <div className="h-full flex flex-col items-center justify-center gap-3">
                 <div className="mb-1 transform transition-transform duration-500 group-hover:scale-110">
@@ -36,7 +35,7 @@ export function Stats() {
                 </p>
               </div>
               
-              <button className="absolute left-1/2 bottom-0 -translate-x-1/2 translate-y-[125%] w-[65%] rounded-full border-none bg-primary text-white text-[11px] font-bold py-2 opacity-0 transition-all duration-300 ease-out group-hover:translate-y-[-50%] group-hover:opacity-100 shadow-xl whitespace-nowrap">
+              <button className="absolute left-1/2 bottom-0 -translate-x-1/2 translate-y-[125%] w-[65%] rounded-none border-none bg-primary text-white text-[11px] font-bold py-2 opacity-0 transition-all duration-300 ease-out group-hover:translate-y-[-50%] group-hover:opacity-100 shadow-xl whitespace-nowrap">
                 More info
               </button>
             </div>

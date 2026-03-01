@@ -114,7 +114,7 @@ export function Hero() {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="rounded-full border-2 border-white text-white bg-transparent hover:bg-secondary hover:border-secondary hover:text-white px-10 h-14 text-lg transition-all"
+                className="rounded-none border-2 border-white text-white bg-transparent hover:bg-secondary hover:border-secondary hover:text-white px-10 h-14 text-lg transition-all"
                 asChild
               >
                 <Link href="#contact">Contact Us</Link>
@@ -145,7 +145,7 @@ export function Hero() {
             key={i}
             onClick={() => setCurrent(i)}
             className={cn(
-              "h-1.5 transition-all duration-300 rounded-full",
+              "h-1.5 transition-all duration-300 rounded-none",
               i === current ? "w-10 bg-secondary" : "w-3 bg-white/30"
             )}
           />
