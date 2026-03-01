@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Search, Info, MessageSquare } from "lucide-react";
+import { Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -19,7 +19,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
-const categories = ["All", "Spices", "Pickles", "Vegetables", "Masala Powders"];
+const categories = ["Spices", "Pickles", "Vegetables", "Masala Powders"];
 
 const products = [
   {
@@ -67,31 +67,29 @@ const products = [
 ];
 
 export function Products() {
-  const [activeTab, setActiveTab] = useState("All");
+  const [activeTab, setActiveTab] = useState("Spices");
 
-  const filteredProducts = activeTab === "All" 
-    ? products 
-    : products.filter(p => p.category === activeTab);
+  const filteredProducts = products.filter(p => p.category === activeTab);
 
   return (
     <section id="products" className="py-24 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <Badge variant="secondary" className="mb-4">Our Catalog</Badge>
+          <Badge variant="secondary" className="mb-4 rounded-none">Our Catalog</Badge>
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">Exquisite Product Range</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Discover our comprehensive selection of high-quality Indian foods, meticulously processed and packed to retain their natural freshness and aroma.
           </p>
         </div>
 
-        <Tabs defaultValue="All" className="w-full" onValueChange={setActiveTab}>
+        <Tabs defaultValue="Spices" className="w-full" onValueChange={setActiveTab}>
           <div className="flex justify-center mb-12">
             <TabsList className="bg-muted p-1 rounded-none h-auto flex-wrap">
               {categories.map(cat => (
                 <TabsTrigger 
                   key={cat} 
                   value={cat} 
-                  className="rounded-none px-8 py-2.5 data-[state=active]:bg-primary data-[state=active]:text-white transition-all"
+                  className="rounded-none px-8 py-2.5 data-[state=active]:bg-primary data-[state=active]:text-white transition-all font-bold uppercase tracking-tight text-xs"
                 >
                   {cat}
                 </TabsTrigger>
@@ -112,7 +110,7 @@ export function Products() {
                       data-ai-hint={product.hint}
                     />
                     <div className="absolute top-4 left-4">
-                      <Badge className="bg-secondary text-primary hover:bg-secondary rounded-none">{product.category}</Badge>
+                      <Badge className="bg-secondary text-primary hover:bg-secondary rounded-none font-bold">{product.category}</Badge>
                     </div>
                   </div>
                   <div className="p-8">
@@ -122,13 +120,13 @@ export function Products() {
                     <div className="flex gap-4">
                       <Dialog>
                         <DialogTrigger asChild>
-                          <Button className="flex-1 bg-primary hover:bg-primary/90 rounded-none">
+                          <Button className="flex-1 bg-primary hover:bg-primary/90 rounded-none h-12 font-bold uppercase tracking-widest text-xs">
                             Enquire Now
                           </Button>
                         </DialogTrigger>
-                        <DialogContent className="sm:max-w-[500px] rounded-none">
+                        <DialogContent className="sm:max-w-[500px] rounded-none border-none">
                           <DialogHeader>
-                            <DialogTitle className="text-2xl text-primary">Product Enquiry</DialogTitle>
+                            <DialogTitle className="text-2xl text-primary font-bold">Product Enquiry</DialogTitle>
                             <DialogDescription>
                               Send us an enquiry for <span className="font-bold text-secondary">{product.name}</span>. We will get back to you with pricing and details.
                             </DialogDescription>
@@ -136,24 +134,24 @@ export function Products() {
                           <form className="space-y-4 py-4">
                             <div className="grid grid-cols-2 gap-4">
                               <div className="space-y-2">
-                                <label className="text-sm font-medium">Full Name</label>
-                                <Input className="rounded-none" placeholder="John Doe" />
+                                <label className="text-sm font-bold text-primary uppercase">Full Name</label>
+                                <Input className="rounded-none h-12 bg-muted/50 border-none" placeholder="John Doe" />
                               </div>
                               <div className="space-y-2">
-                                <label className="text-sm font-medium">Email</label>
-                                <Input className="rounded-none" type="email" placeholder="john@example.com" />
+                                <label className="text-sm font-bold text-primary uppercase">Email</label>
+                                <Input className="rounded-none h-12 bg-muted/50 border-none" type="email" placeholder="john@example.com" />
                               </div>
                             </div>
                             <div className="space-y-2">
-                              <label className="text-sm font-medium">Estimated Quantity (KG/Ton)</label>
-                              <Input className="rounded-none" placeholder="e.g. 500 KG" />
+                              <label className="text-sm font-bold text-primary uppercase">Estimated Quantity (KG/Ton)</label>
+                              <Input className="rounded-none h-12 bg-muted/50 border-none" placeholder="e.g. 500 KG" />
                             </div>
                             <div className="space-y-2">
-                              <label className="text-sm font-medium">Special Requirements</label>
-                              <Textarea className="rounded-none" placeholder="Any specific packing or shipping needs?" rows={4} />
+                              <label className="text-sm font-bold text-primary uppercase">Special Requirements</label>
+                              <Textarea className="rounded-none bg-muted/50 border-none" placeholder="Any specific packing or shipping needs?" rows={4} />
                             </div>
                             <DialogFooter>
-                              <Button type="submit" className="w-full bg-secondary text-primary hover:bg-primary hover:text-white rounded-none">
+                              <Button type="submit" className="w-full bg-secondary text-primary hover:bg-primary hover:text-white rounded-none h-14 font-bold uppercase tracking-widest">
                                 Send Enquiry
                               </Button>
                             </DialogFooter>
@@ -161,8 +159,8 @@ export function Products() {
                         </DialogContent>
                       </Dialog>
                       
-                      <Button variant="outline" size="icon" className="border-primary/20 text-primary hover:bg-primary hover:text-white rounded-none">
-                        <Info className="w-4 h-4" />
+                      <Button variant="outline" size="icon" className="border-primary/20 text-primary hover:bg-primary hover:text-white rounded-none h-12 w-12">
+                        <Info className="w-5 h-5" />
                       </Button>
                     </div>
                   </div>
