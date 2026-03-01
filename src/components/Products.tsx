@@ -21,7 +21,7 @@ import { Textarea } from "@/components/ui/textarea";
 const categories = ["Spices", "Pickles", "Grains", "Masala Powders"];
 
 const products = [
-  // Spices
+  // Spices (4)
   {
     name: "Premium Red Chili",
     category: "Spices",
@@ -51,7 +51,7 @@ const products = [
     hint: "coriander"
   },
 
-  // Pickles
+  // Pickles (4)
   {
     name: "Classic Mango",
     category: "Pickles",
@@ -74,14 +74,14 @@ const products = [
     hint: "garlic pickle"
   },
   {
-    name: "Mixed Vegetable",
+    name: "Premium Mixed Pickle",
     category: "Pickles",
     image: "https://picsum.photos/seed/mixed/600/600",
     description: "A colorful assortment of seasonal vegetables in a rich, spicy oil base.",
     hint: "mixed pickle"
   },
 
-  // Grains
+  // Grains (4)
   {
     name: "Long-Grain Basmati",
     category: "Grains",
@@ -111,7 +111,7 @@ const products = [
     hint: "pearl millet"
   },
 
-  // Masala Powders
+  // Masala Powders (4)
   {
     name: "Garam Masala",
     category: "Masala Powders",
