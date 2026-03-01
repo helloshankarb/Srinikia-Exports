@@ -21,7 +21,7 @@ const slides = [
     hint: "logistics center"
   },
   {
-    image: "https://images.unsplash.com/photo-1551884171-004163219904?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920",
+    image: "https://firebasestorage.googleapis.com/v0/b/studio-2215204146-270ef.firebasestorage.app/o/shreebhumi%2FChatGPT%20Image%20Mar%201%2C%202026%2C%2010_41_41%20PM.png?alt=media&token=1036b945-2f29-45d7-901b-795db1f7de99",
     welcome: "PREMIUM QUALITY",
     title: "The Finest Indian Agri-Exports",
     hint: "food factory"
