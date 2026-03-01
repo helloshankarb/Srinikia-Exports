@@ -1,11 +1,10 @@
 "use client";
 
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 
 const slides = [
@@ -31,77 +30,78 @@ const slides = [
 
 export function Hero() {
   const [current, setCurrent] = useState(0);
+  const [prev, setPrev] = useState(0);
   const [animating, setAnimating] = useState(false);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     const timer = setInterval(() => {
       handleNextSlide();
     }, 8000);
     return () => clearInterval(timer);
   }, [animating]);
 
-  const gridData = useMemo(() => {
-    if (!mounted) return [];
-    return Array.from({ length: 100 }, () => ({
-      delay: Math.random() * 0.5,
-      tx: (Math.random() - 0.5) * 400,
-      ty: (Math.random() - 0.5) * 400,
-      rot: (Math.random() - 0.5) * 90
-    }));
-  }, [mounted]);
-
   const handleNextSlide = useCallback(() => {
     if (animating) return;
     setAnimating(true);
+    setPrev(current);
     setCurrent((prevIdx) => (prevIdx + 1) % slides.length);
-    setTimeout(() => setAnimating(false), 1200);
-  }, [animating]);
+    setTimeout(() => setAnimating(false), 1000);
+  }, [animating, current]);
 
   const handlePrevSlide = useCallback(() => {
     if (animating) return;
     setAnimating(true);
+    setPrev(current);
     setCurrent((prevIdx) => (prevIdx === 0 ? slides.length - 1 : prevIdx - 1));
-    setTimeout(() => setAnimating(false), 1200);
-  }, [animating]);
+    setTimeout(() => setAnimating(false), 1000);
+  }, [animating, current]);
 
   return (
     <section id="home" className="relative h-screen w-full overflow-hidden bg-black">
-      {/* Background Images */}
-      {slides.map((slide, index) => (
+      {/* Background Layers */}
+      <div className="absolute inset-0">
+        {/* Previous Slide (stays visible during transition) */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={slides[prev].image}
+            alt="Previous Slide"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/40" />
+        </div>
+
+        {/* Current Slide */}
         <div
-          key={index}
+          key={current}
           className={cn(
-            "absolute inset-0 transition-opacity duration-1000",
-            index === current ? "opacity-100 z-10" : "opacity-0 z-0"
+            "absolute inset-0 transition-opacity duration-500 z-10",
+            animating ? "opacity-0" : "opacity-100"
           )}
         >
           <Image
-            src={slide.image}
-            alt={slide.title}
+            src={slides[current].image}
+            alt={slides[current].title}
             fill
-            className="object-cover"
-            priority={index === 0}
-            data-ai-hint={slide.hint}
+            className="object-cover animate-ken-burns"
+            priority
+            data-ai-hint={slides[current].hint}
           />
-          <div className="absolute inset-0 bg-black/40 z-10" />
+          <div className="absolute inset-0 bg-black/40" />
         </div>
-      ))}
+      </div>
 
-      {/* Shatter Transition Layer */}
-      {animating && mounted && (
-        <div className="absolute inset-0 grid grid-cols-10 grid-rows-10 z-20 pointer-events-none">
-          {gridData.map((data, i) => (
-            <div 
-              key={i} 
-              className="bg-primary animate-grid-shatter"
-              style={{ 
-                animationDelay: `${data.delay}s`,
-                '--tx': `${data.tx}px`,
-                '--ty': `${data.ty}px`,
-                '--rot': `${data.rot}deg`
-              } as any}
+      {/* Vertical Shutter Transition Overlay */}
+      {animating && (
+        <div className="absolute inset-0 z-20 flex pointer-events-none">
+          {[...Array(5)].map((_, i) => (
+            <div
+              key={i}
+              className="flex-1 bg-primary animate-shutter"
+              style={{
+                animationDelay: `${i * 0.05}s`
+              }}
             />
           ))}
         </div>
@@ -154,9 +154,10 @@ export function Hero() {
             key={i}
             onClick={() => {
               if (animating || current === i) return;
-              setAnimating(true);
+              setPrev(current);
               setCurrent(i);
-              setTimeout(() => setAnimating(false), 1200);
+              setAnimating(true);
+              setTimeout(() => setAnimating(false), 1000);
             }}
             className={cn(
               "h-1.5 transition-all duration-300 rounded-none",
