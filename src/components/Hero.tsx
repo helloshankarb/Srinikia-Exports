@@ -1,6 +1,7 @@
+
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -31,35 +32,40 @@ const slides = [
 
 export function Hero() {
   const [current, setCurrent] = useState(0);
-  const [prev, setPrev] = useState(0);
   const [animating, setAnimating] = useState(false);
-  const [gridDelays, setGridDelays] = useState<number[]>([]);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Stable random delays for hydration
-    setGridDelays(Array.from({ length: 100 }, () => Math.random() * 0.4));
-
+    setMounted(true);
     const timer = setInterval(() => {
       handleNextSlide();
     }, 8000);
     return () => clearInterval(timer);
   }, []);
 
+  const gridData = useMemo(() => {
+    if (!mounted) return [];
+    return Array.from({ length: 100 }, () => ({
+      delay: Math.random() * 0.5,
+      tx: (Math.random() - 0.5) * 200,
+      ty: (Math.random() - 0.5) * 200,
+      rot: (Math.random() - 0.5) * 45
+    }));
+  }, [mounted]);
+
   const handleNextSlide = useCallback(() => {
     if (animating) return;
     setAnimating(true);
-    setPrev(current);
     setCurrent((prevIdx) => (prevIdx + 1) % slides.length);
     setTimeout(() => setAnimating(false), 1200);
-  }, [animating, current]);
+  }, [animating]);
 
   const handlePrevSlide = useCallback(() => {
     if (animating) return;
     setAnimating(true);
-    setPrev(current);
     setCurrent((prevIdx) => (prevIdx === 0 ? slides.length - 1 : prevIdx - 1));
     setTimeout(() => setAnimating(false), 1200);
-  }, [animating, current]);
+  }, [animating]);
 
   return (
     <section id="home" className="relative h-screen w-full overflow-hidden bg-black">
@@ -84,16 +90,20 @@ export function Hero() {
         </div>
       ))}
 
-      {/* Grizzle/Break Transition Layer */}
-      {animating && (
+      {/* Enhanced Break Transition Layer */}
+      {animating && mounted && (
         <div className="absolute inset-0 grid grid-cols-10 grid-rows-10 z-20 pointer-events-none">
-          {gridDelays.map((delay, i) => (
+          {gridData.map((data, i) => (
             <div 
               key={i} 
               className="bg-primary animate-grid-shatter"
               style={{ 
-                animationDelay: `${delay}s`,
-              }}
+                animationDelay: `${data.delay}s`,
+                // Pass random values via CSS variables for the animation
+                '--tx': `${data.tx}px`,
+                '--ty': `${data.ty}px`,
+                '--rot': `${data.rot}deg`
+              } as any}
             />
           ))}
         </div>
@@ -126,14 +136,14 @@ export function Hero() {
       {/* Navigation Arrows */}
       <button
         onClick={handlePrevSlide}
-        className="absolute left-6 top-1/2 -translate-y-1/2 z-40 p-3 text-white/50 hover:text-secondary transition-colors"
+        className="absolute left-6 top-1/2 -translate-y-1/2 z-40 p-3 text-white/50 hover:text-secondary transition-colors hidden md:block"
         aria-label="Previous slide"
       >
         <ChevronLeft size={64} strokeWidth={1} />
       </button>
       <button
         onClick={handleNextSlide}
-        className="absolute right-6 top-1/2 -translate-y-1/2 z-40 p-3 text-white/50 hover:text-secondary transition-colors"
+        className="absolute right-6 top-1/2 -translate-y-1/2 z-40 p-3 text-white/50 hover:text-secondary transition-colors hidden md:block"
         aria-label="Next slide"
       >
         <ChevronRight size={64} strokeWidth={1} />
@@ -147,7 +157,6 @@ export function Hero() {
             onClick={() => {
               if (animating || current === i) return;
               setAnimating(true);
-              setPrev(current);
               setCurrent(i);
               setTimeout(() => setAnimating(false), 1200);
             }}

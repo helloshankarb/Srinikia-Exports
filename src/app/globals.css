@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,7 +11,7 @@
     --card-foreground: 152 40% 10%;
     --popover: 0 0% 100%;
     --popover-foreground: 152 40% 10%;
-    --primary: 152 100% 20%; /* Deep Green */
+    --primary: 152 100% 18%; /* Darker Green */
     --primary-foreground: 0 0% 100%;
     --secondary: 75 90% 50%; /* Lime Green */
     --secondary-foreground: 152 40% 10%;
@@ -28,7 +29,7 @@
     --chart-3: 145 80% 40%;
     --chart-4: 160 65% 60%;
     --chart-5: 180 75% 55%;
-    --radius: 0; /* Sharp edges */
+    --radius: 0; /* Sharp edges strictly enforced */
   }
 }
 
@@ -44,24 +45,24 @@
 @keyframes grid-shatter {
   0% {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1) translate(0, 0) rotate(0);
     clip-path: inset(0% 0% 0% 0%);
   }
   100% {
     opacity: 0;
-    transform: scale(0.5) rotate(15deg);
-    clip-path: inset(50% 50% 50% 50%);
+    transform: scale(0.2) translate(var(--tx), var(--ty)) rotate(var(--rot));
+    clip-path: inset(20% 20% 20% 20%);
   }
 }
 
 .animate-grid-shatter {
-  animation: grid-shatter 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: grid-shatter 0.9s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
 }
 
 @keyframes text-reveal-centered {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -70,7 +71,7 @@
 }
 
 .animate-text-reveal {
-  animation: text-reveal-centered 0.8s ease-out forwards;
+  animation: text-reveal-centered 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
 
 .nav-link-underline {
