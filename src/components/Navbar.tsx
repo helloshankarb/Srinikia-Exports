@@ -30,7 +30,7 @@ export function Navbar() {
   const logoUrl = "https://firebasestorage.googleapis.com/v0/b/studio-2215204146-270ef.firebasestorage.app/o/WhatsApp%20Image%202026-03-01%20at%2010.37.55%20AM.jpeg?alt=media&token=22012649-933c-4e4e-9775-dc1f1198cfe0";
 
   const Logo = () => (
-    <div className="relative h-12 w-40 md:h-16 md:w-56">
+    <div className="relative h-10 w-36 md:h-12 md:w-48">
       <Image 
         src={logoUrl} 
         alt="Shree Bhumi Natures Best Logo" 
@@ -43,8 +43,8 @@ export function Navbar() {
 
   return (
     <>
-      {/* Top Info Bar - Remains Green */}
-      <div className="bg-primary text-white py-3 hidden md:block border-b border-secondary/30">
+      {/* Top Info Bar - Reduced padding from py-3 to py-2 */}
+      <div className="bg-primary text-white py-2 hidden md:block border-b border-secondary/30">
         <div className="container mx-auto px-6 flex justify-between items-center text-sm font-medium">
           <div className="flex gap-6 items-center">
             <Facebook className="w-4 h-4 hover:text-secondary cursor-pointer transition-colors" />
@@ -60,24 +60,24 @@ export function Navbar() {
           <div className="flex gap-8 items-center">
             <div className="flex items-center gap-2 group cursor-pointer">
               <Phone className="w-4 h-4 text-secondary" />
-              <span className="group-hover:text-secondary transition-colors">+91 9106758216</span>
+              <span className="group-hover:text-secondary transition-colors text-xs md:text-sm">+91 9106758216</span>
             </div>
             <div className="w-px h-4 bg-white/20" />
             <div className="flex items-center gap-2 group cursor-pointer">
               <Mail className="w-4 h-4 text-secondary" />
-              <span className="group-hover:text-secondary transition-colors">info@sbnbglobal.com</span>
+              <span className="group-hover:text-secondary transition-colors text-xs md:text-sm">info@sbnbglobal.com</span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Main Logo Nav Bar - White Background */}
+      {/* Main Logo Nav Bar - Reduced padding py-5 -> py-2 and py-3 -> py-1 */}
       <header
         className={cn(
           "fixed left-0 right-0 z-50 transition-all duration-300 border-b border-border/10",
           scrolled 
-            ? "bg-white/95 shadow-lg py-3 top-0" 
-            : "bg-white md:top-[49px] py-5"
+            ? "bg-white/95 shadow-lg py-1 top-0" 
+            : "bg-white md:top-[41px] py-2"
         )}
       >
         <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
