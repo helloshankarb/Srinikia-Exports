@@ -5,16 +5,17 @@ import { CheckCircle2, Globe, MessageCircle } from "lucide-react";
 import Link from "next/link";
 
 export function About() {
-  const spicesImageUrl = "https://jbrotherexports.com/wp-content/uploads/2023/02/spices.jpg";
+  const agriExportsImageUrl = "https://jbrotherexports.com/wp-content/uploads/2023/02/agri-exports.jpg";
   const exportMapUrl = "https://jbrotherexports.com/wp-content/uploads/2023/02/map-export.jpg";
+  const spicesImageUrl = "https://jbrotherexports.com/wp-content/uploads/2023/02/spices.jpg";
   
   const sections = [
     {
       subtitle: "WELCOME TO",
       title: "SHREE BHUMI NATURES BEST PVT LTD",
       text: "In 2009, our group emerged onto the scene with a clear mission: to deliver top-notch products to consumers. Our journey began with a steadfast commitment to quality. As we steadily gained recognition for our dedication to excellence, we ventured into various sectors, including the premium spices and agricultural exports. Over time, our relentless pursuit of superior quality propelled us to the forefront of the market, establishing Shree Bhumi as a leading name in the realm of global food exports, not only within Gujarat but throughout India.",
-      image: spicesImageUrl,
-      hint: "indian spices",
+      image: agriExportsImageUrl,
+      hint: "agri exports",
       reversed: false
     },
     {
