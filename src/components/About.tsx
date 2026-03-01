@@ -1,77 +1,93 @@
+
 "use client";
 
 import Image from "next/image";
-import { CheckCircle2, Shield, Leaf, Ship, Star, Globe } from "lucide-react";
+import { CheckCircle2, Shield, Leaf, Ship, Star, Globe, MessageCircle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-
-const features = [
-  {
-    title: "100% Organic",
-    desc: "Sourced from the finest organic farms across India.",
-    icon: Leaf
-  },
-  {
-    title: "Quality Control",
-    desc: "Rigorous testing to meet international food safety standards.",
-    icon: Shield
-  },
-  {
-    title: "Global Shipping",
-    desc: "Reliable logistics to deliver products fresh anywhere.",
-    icon: Ship
-  }
-];
+import Link from "next/link";
 
 export function About() {
+  const sections = [
+    {
+      subtitle: "WELCOME TO",
+      title: "SHREE BHUMI NATURES BEST PVT LTD",
+      text: "In 2009, our group emerged onto the scene with a clear mission: to deliver top-notch products to consumers. Our journey began with a steadfast commitment to quality. As we steadily gained recognition for our dedication to excellence, we ventured into various sectors, including the premium spices and agricultural exports. Over time, our relentless pursuit of superior quality propelled us to the forefront of the market, establishing Shree Bhumi as a leading name in the realm of global food exports, not only within Gujarat but throughout India.",
+      image: PlaceHolderImages.find(i => i.id === 'about-us')?.imageUrl || "",
+      hint: "spice plantation",
+      reversed: false
+    },
+    {
+      subtitle: "OUR MISSION",
+      title: "DELIVERING PURITY GLOBALLY",
+      text: "Our core mission is to bridge the gap between authentic Indian farms and global kitchens. We ensure that every product, from our ground spices to our whole vegetables, meets the highest international food safety standards. We believe in sustainable growth that benefits both the farmers who grow our products and the consumers who trust our quality across 25+ countries.",
+      image: PlaceHolderImages.find(i => i.id === 'hero-factory')?.imageUrl || "",
+      hint: "food factory",
+      reversed: true
+    },
+    {
+      subtitle: "QUALITY ASSURANCE",
+      title: "EXCELLENCE IN EVERY BATCH",
+      text: "Shree Bhumi Natures Best (SBNB) employs state-of-the-art processing units adhering to FSSAI & ISO standards. Our transparency in the supply chain provides full traceability, ensuring that 'Natures Best' is not just a name, but a promise kept in every shipment. We offer customized packaging for retail and bulk orders, catering to specific market needs worldwide.",
+      image: PlaceHolderImages.find(i => i.id === 'hero-vegetables')?.imageUrl || "",
+      hint: "fresh vegetables",
+      reversed: false
+    }
+  ];
+
   return (
-    <section id="about" className="py-24 overflow-hidden">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col lg:flex-row items-center gap-16">
-          <div className="lg:w-1/2 relative">
-            <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl">
-              <Image 
-                src={PlaceHolderImages.find(i => i.id === 'about-us')?.imageUrl || ""} 
-                alt="About Shree Bhumi" 
-                width={800} 
-                height={600} 
-                className="object-cover"
-                data-ai-hint="spice plantation"
-              />
+    <section id="about" className="relative">
+      {/* Floating WhatsApp Button */}
+      <Link 
+        href="https://wa.me/919106758216" 
+        target="_blank"
+        className="fixed bottom-10 right-10 z-[100] bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center"
+      >
+        <MessageCircle className="w-8 h-8 fill-current" />
+      </Link>
+
+      {sections.map((section, idx) => (
+        <div key={idx} className={`py-24 ${idx % 2 !== 0 ? 'bg-primary/5' : 'bg-white'} overflow-hidden relative`}>
+          {/* Vertical Enquiry Badge (only on first section as per screenshot) */}
+          {idx === 0 && (
+            <div className="absolute left-0 top-1/2 -translate-y-1/2 hidden lg:flex">
+              <Link href="#contact" className="bg-primary text-white py-10 px-3 [writing-mode:vertical-lr] rotate-180 font-bold tracking-widest text-sm rounded-r-2xl hover:bg-secondary transition-colors cursor-pointer">
+                Enquiry Now
+              </Link>
             </div>
-            <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-secondary rounded-full -z-0 opacity-20 blur-3xl" />
-            <div className="absolute top-10 -left-10 bg-white p-8 rounded-2xl shadow-xl z-20 hidden md:block border border-border">
-              <div className="flex items-center gap-4 mb-2">
-                <Star className="text-secondary fill-secondary" />
-                <span className="font-bold text-primary text-xl">Top Exporter 2024</span>
+          )}
+
+          <div className="container mx-auto px-6">
+            <div className={`flex flex-col lg:flex-row items-center gap-16 ${section.reversed ? 'lg:flex-row-reverse' : ''}`}>
+              <div className="lg:w-1/2">
+                <span className="text-secondary text-2xl font-light tracking-[0.2em] block mb-2 uppercase">
+                  {section.subtitle}
+                </span>
+                <h2 className="text-4xl md:text-5xl font-bold text-primary mb-8 leading-tight">
+                  {section.title}
+                </h2>
+                <p className="text-lg text-muted-foreground mb-8 leading-relaxed text-justify">
+                  {section.text}
+                </p>
               </div>
-              <p className="text-sm text-muted-foreground">Recognized for Excellence in Spices</p>
-            </div>
-          </div>
-          
-          <div className="lg:w-1/2">
-            <Badge variant="outline" className="text-secondary border-secondary mb-4">Our Story</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-8">Pioneers of Authentic Indian Export</h2>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Founded with a passion for bringing the rich flavors of India to the global table, Shree Bhumi Natures Best Pvt Ltd has grown from a local supplier to a trusted international export partner. We bridge the gap between rural farmers and global kitchens.
-            </p>
-            
-            <div className="space-y-6">
-              {features.map((item, i) => (
-                <div key={i} className="flex gap-6 items-start">
-                  <div className="w-12 h-12 bg-primary/5 rounded-xl flex items-center justify-center shrink-0">
-                    <item.icon className="text-primary w-6 h-6" />
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold text-primary mb-1">{item.title}</h4>
-                    <p className="text-muted-foreground">{item.desc}</p>
-                  </div>
+              
+              <div className="lg:w-1/2 relative">
+                <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
+                  <Image 
+                    src={section.image} 
+                    alt={section.title} 
+                    width={800} 
+                    height={600} 
+                    className="object-cover hover:scale-105 transition-transform duration-700"
+                    data-ai-hint={section.hint}
+                  />
                 </div>
-              ))}
+                <div className={`absolute -bottom-10 ${section.reversed ? '-left-10' : '-right-10'} w-64 h-64 bg-secondary rounded-full -z-0 opacity-20 blur-3xl`} />
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      ))}
     </section>
   );
 }
@@ -90,7 +106,7 @@ export function WhyChooseUs() {
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row gap-16 items-center">
           <div className="lg:w-1/2">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8">Why Shree Bhumi (SBNB)?</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 uppercase tracking-tight">Why Choose Us?</h2>
             <div className="space-y-6">
               {points.map((point, i) => (
                 <div key={i} className="flex items-center gap-4 group">
