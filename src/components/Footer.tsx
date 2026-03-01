@@ -9,17 +9,17 @@ export function Footer() {
   const bgImageUrl = "https://i.ibb.co/v667tdY6/image.png";
 
   return (
-    <footer className="relative bg-primary text-white pt-20 pb-10 overflow-hidden">
-      {/* Background Image with Overlay */}
+    <footer className="relative text-white pt-20 pb-10 overflow-hidden">
+      {/* Background Image Only */}
       <div className="absolute inset-0 z-0">
         <Image 
           src={bgImageUrl}
           alt="Footer Background"
           fill
-          className="object-cover opacity-20"
+          className="object-cover"
           sizes="100vw"
+          priority
         />
-        <div className="absolute inset-0 bg-primary/80" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -36,17 +36,17 @@ export function Footer() {
                 </span>
               </span>
             </Link>
-            <p className="text-white/70 leading-relaxed text-sm">
+            <p className="text-white/90 leading-relaxed text-sm drop-shadow-md">
               Global leaders in premium Indian food exports. Dedicated to quality, purity, and sustainable farming practices that bridge the gap between farms and the world.
             </p>
           </div>
 
           <div>
-            <h4 className="text-xl font-bold mb-8 uppercase tracking-tighter border-b border-secondary/30 pb-2 inline-block">Quick Links</h4>
+            <h4 className="text-xl font-bold mb-8 uppercase tracking-tighter border-b border-secondary/30 pb-2 inline-block drop-shadow-md">Quick Links</h4>
             <ul className="space-y-4">
               {["Home", "About Us", "Products", "Technology", "Contact Us"].map((item) => (
                 <li key={item}>
-                  <Link href={`#${item.toLowerCase().replace(' ', '-')}`} className="text-white/60 hover:text-secondary transition-colors flex items-center gap-2 group text-sm font-bold">
+                  <Link href={`#${item.toLowerCase().replace(' ', '-')}`} className="text-white hover:text-secondary transition-colors flex items-center gap-2 group text-sm font-bold drop-shadow-sm">
                     <ChevronRight className="w-4 h-4 text-secondary opacity-0 group-hover:opacity-100 transition-all -ml-6 group-hover:ml-0" />
                     {item}
                   </Link>
@@ -56,11 +56,11 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-xl font-bold mb-8 uppercase tracking-tighter border-b border-secondary/30 pb-2 inline-block">Product Catalog</h4>
+            <h4 className="text-xl font-bold mb-8 uppercase tracking-tighter border-b border-secondary/30 pb-2 inline-block drop-shadow-md">Product Catalog</h4>
             <ul className="space-y-4">
               {["Premium Spices", "Authentic Pickles", "Fresh Vegetables", "Masala Powders"].map((item) => (
                 <li key={item}>
-                  <Link href="#products" className="text-white/60 hover:text-secondary transition-colors flex items-center gap-2 group text-sm font-bold">
+                  <Link href="#products" className="text-white hover:text-secondary transition-colors flex items-center gap-2 group text-sm font-bold drop-shadow-sm">
                     <ChevronRight className="w-4 h-4 text-secondary opacity-0 group-hover:opacity-100 transition-all -ml-6 group-hover:ml-0" />
                     {item}
                   </Link>
@@ -70,25 +70,25 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-xl font-bold mb-8 uppercase tracking-tighter border-b border-secondary/30 pb-2 inline-block">Contact Info</h4>
+            <h4 className="text-xl font-bold mb-8 uppercase tracking-tighter border-b border-secondary/30 pb-2 inline-block drop-shadow-md">Contact Info</h4>
             <ul className="space-y-6">
               <li className="flex gap-4 items-start">
                 <MapPin className="text-secondary shrink-0 mt-1" />
-                <span className="text-white/70 text-sm leading-relaxed font-medium">Global Headquarters, Gujarat, India</span>
+                <span className="text-white text-sm leading-relaxed font-bold drop-shadow-sm">Global Headquarters, Gujarat, India</span>
               </li>
               <li className="flex gap-4 items-center">
                 <Phone className="text-secondary shrink-0" />
-                <span className="text-white/70 text-sm font-medium">+91 9106758216</span>
+                <span className="text-white text-sm font-bold drop-shadow-sm">+91 9106758216</span>
               </li>
               <li className="flex gap-4 items-center">
                 <Mail className="text-secondary shrink-0" />
-                <span className="text-white/70 text-sm font-medium">info@sbnbglobal.com</span>
+                <span className="text-white text-sm font-bold drop-shadow-sm">info@sbnbglobal.com</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-white/40 text-[10px] uppercase tracking-widest font-bold">
+        <div className="pt-10 border-t border-white/20 flex flex-col md:flex-row justify-between items-center gap-6 text-white/60 text-[10px] uppercase tracking-widest font-bold drop-shadow-md">
           <p>© {currentYear} Shree Bhumi Natures Best Pvt Ltd. All Rights Reserved.</p>
           <div className="flex gap-8">
             <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
