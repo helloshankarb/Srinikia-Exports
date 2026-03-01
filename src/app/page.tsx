@@ -2,7 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { Stats } from "@/components/Stats";
 import { ExportExpress } from "@/components/ExportExpress";
-import { About, WhyChooseUs } from "@/components/About";
+import { About, WhyChooseUs, Certifications } from "@/components/About";
 import { Products } from "@/components/Products";
 import { Testimonials } from "@/components/Testimonials";
 import { Contact } from "@/components/Contact";
@@ -17,8 +17,9 @@ export default function Home() {
       <Stats />
       <ExportExpress />
       <About />
-      <WhyChooseUs />
       <Products />
+      <Certifications />
+      <WhyChooseUs />
       <Testimonials />
       <Contact />
       <Footer />

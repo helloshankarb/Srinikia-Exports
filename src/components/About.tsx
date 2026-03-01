@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -5,15 +6,15 @@ import { CheckCircle2, Globe, MessageCircle } from "lucide-react";
 import Link from "next/link";
 
 export function About() {
-  const agriExportsImageUrl = "https://jbrotherexports.com/wp-content/uploads/2023/02/agri-exports.jpg";
-  const exportMapUrl = "https://jbrotherexports.com/wp-content/uploads/2023/02/map-export.jpg";
-  const spicesImageUrl = "https://jbrotherexports.com/wp-content/uploads/2023/02/spices.jpg";
+  const agriExportsImageUrl = "https://images.unsplash.com/photo-1771860108097-9e4214acfd37?q=80&w=1080";
+  const exportMapUrl = "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1080";
+  const spicesImageUrl = "https://images.unsplash.com/photo-1606914469725-e398d2f1d7ee?q=80&w=1080";
   
   const sections = [
     {
       subtitle: "WELCOME TO",
       title: "SHREE BHUMI NATURES BEST PVT LTD",
-      text: "In 2009, our group emerged onto the scene with a clear mission: to deliver top-notch products to consumers. Our journey began with a steadfast commitment to quality. As we steadily gained recognition for our dedication to excellence, we ventured into various sectors, including the premium spices and agricultural exports. Over time, our relentless pursuit of superior quality propelled us to the forefront of the market, establishing Shree Bhumi as a leading name in the realm of global food exports, not only within Gujarat but throughout India.",
+      text: "In 2009, our group emerged onto the scene with a clear mission: to deliver top-notch products to consumers. Our journey began with a steadfast commitment to quality. As we steadily gained recognition for our dedication to excellence, we ventured into various sectors, including the premium spices and agricultural grains exports. Over time, our relentless pursuit of superior quality propelled us to the forefront of the market, establishing Shree Bhumi as a leading name in the realm of global food exports, not only within Gujarat but throughout India.",
       image: agriExportsImageUrl,
       hint: "agri exports",
       reversed: false
@@ -80,6 +81,44 @@ export function About() {
           </div>
         </div>
       ))}
+    </section>
+  );
+}
+
+export function Certifications() {
+  const logos = [
+    { name: "GMP", url: "https://www.vhcaherbals.com/wp-content/uploads/2018/06/gmp-logo.png" },
+    { name: "APEDA", url: "https://jbrotherexports.com/wp-content/uploads/2023/02/apeda.png" },
+    { name: "HALAL", url: "https://jbrotherexports.com/wp-content/uploads/2023/02/halal.png" },
+    { name: "Spices Board", url: "https://jbrotherexports.com/wp-content/uploads/2023/02/spice_board.png" },
+    { name: "IAF", url: "https://jbrotherexports.com/wp-content/uploads/2023/02/iaf.png" },
+    { name: "FDA", url: "https://jbrotherexports.com/wp-content/uploads/2023/02/fda.png" },
+    { name: "FSSAI", url: "https://jbrotherexports.com/wp-content/uploads/2023/02/fssai.png" },
+    { name: "MSME", url: "https://jbrotherexports.com/wp-content/uploads/2023/02/msme.png" }
+  ];
+
+  return (
+    <section className="py-16 bg-white border-t border-border">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold tracking-widest text-primary uppercase">
+            OUR <span className="text-secondary">CERTIFICATES</span>
+          </h2>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 items-center justify-items-center opacity-80 hover:opacity-100 transition-opacity">
+          {logos.map((logo, i) => (
+            <div key={i} className="relative w-24 h-24 grayscale hover:grayscale-0 transition-all duration-300">
+              <Image 
+                src={logo.url} 
+                alt={logo.name} 
+                fill 
+                className="object-contain"
+                sizes="100px"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

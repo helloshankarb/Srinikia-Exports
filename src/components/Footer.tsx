@@ -20,7 +20,7 @@ export function Footer() {
 
   return (
     <footer className="relative text-white pt-20 pb-10 overflow-hidden">
-      {/* Background Stack: Image only */}
+      {/* Background Stack: Image with Brand Overlay */}
       <div className="absolute inset-0 z-0">
         <Image 
           src={bgImageUrl}
@@ -29,8 +29,8 @@ export function Footer() {
           className="object-cover"
           sizes="100vw"
         />
-        {/* Subtle dark overlay for readability */}
-        <div className="absolute inset-0 bg-primary/80 mix-blend-multiply" />
+        {/* Deep brand green overlay for professional legibility */}
+        <div className="absolute inset-0 bg-primary/85 mix-blend-multiply" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
