@@ -10,14 +10,17 @@ export function Footer() {
 
   const Logo = () => (
     <div className="flex flex-col items-start leading-none pl-3 border-l-4 border-secondary">
-      <span className="text-white font-black text-xl md:text-2xl tracking-tighter">SHREE BHUMI</span>
-      <span className="text-secondary font-bold text-[10px] md:text-xs tracking-[0.2em] mt-0.5">NATURE&apos;S BEST</span>
+      <div className="flex items-baseline gap-1.5">
+        <span className="text-white font-black text-xl md:text-2xl tracking-tighter uppercase">SHREE BHUMI</span>
+        <span className="text-white font-bold text-[10px] md:text-xs opacity-80 uppercase tracking-widest">PVT LTD</span>
+      </div>
+      <span className="text-secondary font-bold text-[10px] md:text-xs tracking-[0.2em] mt-0.5 uppercase">NATURE&apos;S BEST</span>
     </div>
   );
 
   return (
     <footer className="relative text-white pt-20 pb-10 overflow-hidden">
-      {/* Background Stack: Image -> Green Overlay */}
+      {/* Background Stack: Image only */}
       <div className="absolute inset-0 z-0">
         <Image 
           src={bgImageUrl}
@@ -26,8 +29,8 @@ export function Footer() {
           className="object-cover"
           sizes="100vw"
         />
-        {/* Semi-transparent Green Overlay for branding and readability */}
-        <div className="absolute inset-0 bg-primary/90 mix-blend-multiply" />
+        {/* Subtle dark overlay for readability */}
+        <div className="absolute inset-0 bg-primary/80 mix-blend-multiply" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">

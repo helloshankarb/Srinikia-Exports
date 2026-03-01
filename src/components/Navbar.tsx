@@ -27,8 +27,11 @@ export function Navbar() {
 
   const Logo = () => (
     <div className="flex flex-col items-start leading-none pl-3 border-l-4 border-secondary">
-      <span className="text-white font-black text-xl md:text-2xl tracking-tighter">SHREE BHUMI</span>
-      <span className="text-secondary font-bold text-[10px] md:text-xs tracking-[0.2em] mt-0.5">NATURE&apos;S BEST</span>
+      <div className="flex items-baseline gap-1.5">
+        <span className="text-white font-black text-xl md:text-2xl tracking-tighter uppercase">SHREE BHUMI</span>
+        <span className="text-white font-bold text-[10px] md:text-xs opacity-80 uppercase tracking-widest">PVT LTD</span>
+      </div>
+      <span className="text-secondary font-bold text-[10px] md:text-xs tracking-[0.2em] mt-0.5 uppercase">NATURE&apos;S BEST</span>
     </div>
   );
 
