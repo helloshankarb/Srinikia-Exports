@@ -1,11 +1,9 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Globe, Phone, Mail, Facebook, Twitter, Instagram, Linkedin, Youtube, MapPin } from "lucide-react";
+import { Menu, X, Facebook, Twitter, Instagram, Linkedin, Youtube, Phone, Mail, Leaf } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,60 +19,70 @@ export function Navbar() {
 
   const navLinks = [
     { name: "HOME", href: "#home" },
-    { name: "ABOUT", href: "#about" },
-    { name: "SOURCING AGENT", href: "#why-us" },
+    { name: "ABOUT US", href: "#about" },
     { name: "PRODUCTS", href: "#products" },
-    { name: "GALLERY", href: "#gallery" },
-    { name: "BLOG", href: "/blog" },
+    { name: "TECHNOLOGY", href: "#why-us" },
     { name: "CONTACT US", href: "#contact" },
   ];
 
   return (
     <>
       {/* Top Info Bar */}
-      <div className="bg-[#222] text-white py-2 hidden md:block border-b border-white/10">
-        <div className="container mx-auto px-6 flex justify-between items-center text-xs font-medium">
+      <div className="bg-primary text-white py-3 hidden md:block border-b border-secondary/30">
+        <div className="container mx-auto px-6 flex justify-between items-center text-sm font-medium">
           <div className="flex gap-6 items-center">
-            <div className="flex items-center gap-2">
-              <MapPin className="w-3 h-3 text-secondary" />
-              <span>Ahmedabad, Gujarat, India</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Mail className="w-3 h-3 text-secondary" />
-              <span>info@sbnbglobal.com</span>
-            </div>
+            <Facebook className="w-4 h-4 hover:text-secondary cursor-pointer transition-colors" />
+            <div className="w-px h-4 bg-white/20" />
+            <Instagram className="w-4 h-4 hover:text-secondary cursor-pointer transition-colors" />
+            <div className="w-px h-4 bg-white/20" />
+            <Twitter className="w-4 h-4 hover:text-secondary cursor-pointer transition-colors" />
+            <div className="w-px h-4 bg-white/20" />
+            <Linkedin className="w-4 h-4 hover:text-secondary cursor-pointer transition-colors" />
+            <div className="w-px h-4 bg-white/20" />
+            <Youtube className="w-4 h-4 hover:text-secondary cursor-pointer transition-colors" />
           </div>
-          <div className="flex gap-4 items-center">
-            <Facebook className="w-3.5 h-3.5 hover:text-secondary cursor-pointer" />
-            <Twitter className="w-3.5 h-3.5 hover:text-secondary cursor-pointer" />
-            <Instagram className="w-3.5 h-3.5 hover:text-secondary cursor-pointer" />
-            <Linkedin className="w-3.5 h-3.5 hover:text-secondary cursor-pointer" />
-            <Youtube className="w-3.5 h-3.5 hover:text-secondary cursor-pointer" />
+          <div className="flex gap-8 items-center">
+            <div className="flex items-center gap-2 group cursor-pointer">
+              <Phone className="w-4 h-4 text-secondary" />
+              <span className="group-hover:text-secondary transition-colors">+91 9106758216</span>
+            </div>
+            <div className="w-px h-4 bg-white/20" />
+            <div className="flex items-center gap-2 group cursor-pointer">
+              <Mail className="w-4 h-4 text-secondary" />
+              <span className="group-hover:text-secondary transition-colors">info@jbrotherexports.com</span>
+            </div>
           </div>
         </div>
       </div>
 
       <header
         className={cn(
-          "fixed top-0 md:top-[33px] left-0 right-0 z-50 transition-all duration-300",
-          scrolled ? "bg-[#1a2a3a]/95 shadow-lg py-2 md:top-0" : "bg-black/30 backdrop-blur-sm py-4"
+          "fixed left-0 right-0 z-50 transition-all duration-300",
+          scrolled 
+            ? "bg-primary/95 shadow-lg py-3 top-0" 
+            : "bg-primary md:top-[49px] py-5"
         )}
       >
         <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="text-2xl font-bold tracking-tighter text-white flex items-center">
-              <span className="text-secondary">SBNB</span>
-              <span className="ml-1 opacity-80">GLOBAL</span>
+          <Link href="/" className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center">
+              <Leaf className="text-secondary w-7 h-7" />
+            </div>
+            <div className="flex flex-col leading-none">
+              <span className="text-lg font-bold text-white tracking-tighter">J. BROTHER</span>
+              <span className="text-[7px] text-white/70 font-bold uppercase mt-1 tracking-widest">
+                Spices & Agri Export Pvt. Ltd.
+              </span>
             </div>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-10">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-[13px] font-bold text-white hover:text-secondary transition-colors nav-link-underline"
+                className="text-[13px] font-bold text-white hover:text-secondary transition-colors nav-link-underline tracking-wide"
               >
                 {link.name}
               </Link>
@@ -94,13 +102,14 @@ export function Navbar() {
       {/* Full-screen Mobile Menu */}
       <div
         className={cn(
-          "fixed inset-0 z-[60] bg-[#1a2a3a] flex flex-col transition-transform duration-500 lg:hidden",
+          "fixed inset-0 z-[60] bg-primary flex flex-col transition-transform duration-500 lg:hidden",
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
         <div className="container mx-auto px-6 py-5 flex items-center justify-between border-b border-white/10">
-          <div className="text-2xl font-bold text-white">
-            <span className="text-secondary">SBNB</span> GLOBAL
+          <div className="flex items-center gap-2">
+            <Leaf className="text-secondary w-6 h-6" />
+            <span className="text-xl font-bold text-white">J. BROTHER</span>
           </div>
           <button
             className="text-white p-2"

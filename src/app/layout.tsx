@@ -1,10 +1,9 @@
-
 import type {Metadata} from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'SBNB Global Foods | Premium Spices & Foods Export',
-  description: 'SBNB Global Foods is a leading exporter of authentic Indian spices, pickles, vegetables, and masala powders globally.',
+  title: 'J. Brother Spices & Agri Export | Premium Global Exports',
+  description: 'J. Brother Spices & Agri Export Pvt. Ltd. is a leading global exporter of authentic Indian spices, agriculture products, and premium food supplies.',
 };
 
 export default function RootLayout({

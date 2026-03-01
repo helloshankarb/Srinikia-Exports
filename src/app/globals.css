@@ -1,34 +1,33 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 210 20% 98%; /* Soft blueish off-white */
-    --foreground: 220 40% 10%;
+    --background: 120 20% 98%;
+    --foreground: 152 40% 10%;
     --card: 0 0% 100%;
-    --card-foreground: 220 40% 10%;
+    --card-foreground: 152 40% 10%;
     --popover: 0 0% 100%;
-    --popover-foreground: 220 40% 10%;
-    --primary: 217 40% 25%; /* #243b55 Dark Blue */
-    --primary-foreground: 210 20% 98%;
-    --secondary: 35 90% 50%; /* #f39c12 Golden/Orange */
-    --secondary-foreground: 220 40% 10%;
-    --muted: 210 20% 90%;
-    --muted-foreground: 215 25% 40%;
-    --accent: 217 40% 35%;
+    --popover-foreground: 152 40% 10%;
+    --primary: 152 100% 20%; /* Deep Green matching the screenshot */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 75 90% 50%; /* Lime Green for highlights/separators */
+    --secondary-foreground: 152 40% 10%;
+    --muted: 120 20% 90%;
+    --muted-foreground: 152 25% 40%;
+    --accent: 152 80% 25%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 20% 98%;
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 217 40% 25%;
-    --chart-1: 217 40% 25%;
-    --chart-2: 35 90% 50%;
-    --chart-3: 199 89% 48%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    --border: 152 32% 91%;
+    --input: 152 32% 91%;
+    --ring: 152 100% 20%;
+    --chart-1: 152 100% 20%;
+    --chart-2: 75 90% 50%;
+    --chart-3: 145 80% 40%;
+    --chart-4: 160 65% 60%;
+    --chart-5: 180 75% 55%;
     --radius: 0.5rem;
   }
 }
