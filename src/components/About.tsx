@@ -93,10 +93,10 @@ export function About() {
 
 export function Certifications() {
   const logos = [
-    { name: "Directorate General of Foreign Trade", url: "https://jbrotherexports.com/wp-content/uploads/2023/02/dgft.png" },
-    { name: "GST", url: "https://jbrotherexports.com/wp-content/uploads/2023/02/gst.png" },
-    { name: "APEDA", url: "https://jbrotherexports.com/wp-content/uploads/2023/02/apeda.png" },
-    { name: "Ministry of Commerce and Industry", url: "https://jbrotherexports.com/wp-content/uploads/2023/02/spice_board.png" }
+    { name: "APEDA", url: "https://jbrotherexports.com/wp-content/uploads/2023/02/Apeda.png" },
+    { name: "FSSAI", url: "https://jbrotherexports.com/wp-content/uploads/2023/02/fssai.png" },
+    { name: "Spices Board India", url: "https://jbrotherexports.com/wp-content/uploads/2023/02/spices-board-india.png" },
+    { name: "MSME", url: "https://jbrotherexports.com/wp-content/uploads/2023/02/MSME.png" }
   ];
 
   return (
