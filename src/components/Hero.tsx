@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect, useCallback, useMemo } from "react";
@@ -11,19 +10,19 @@ import { cn } from "@/lib/utils";
 
 const slides = [
   {
-    image: PlaceHolderImages.find(i => i.id === 'hero-spices')?.imageUrl || "https://images.unsplash.com/photo-1606914469725-e398d2f1d7ee?q=80&w=1920",
+    image: "https://images.unsplash.com/photo-1606914469725-e398d2f1d7ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920",
     welcome: "WELCOME TO",
     title: "Shree Bhumi Natures Best Pvt Ltd",
     hint: "indian spices"
   },
   {
-    image: PlaceHolderImages.find(i => i.id === 'hero-export-ship')?.imageUrl || "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1920",
+    image: "https://oesexportimport.com/wp-content/uploads/2024/11/165.webp",
     welcome: "TRUSTED GLOBAL PARTNER",
     title: "Supply Chain Excellence Redefined",
-    hint: "cargo ship"
+    hint: "logistics center"
   },
   {
-    image: PlaceHolderImages.find(i => i.id === 'hero-factory')?.imageUrl || "https://images.unsplash.com/photo-1551884171-004163219904?q=80&w=1920",
+    image: "https://images.unsplash.com/photo-1551884171-004163219904?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920",
     welcome: "PREMIUM QUALITY",
     title: "The Finest Indian Agri-Exports",
     hint: "food factory"
@@ -41,15 +40,15 @@ export function Hero() {
       handleNextSlide();
     }, 8000);
     return () => clearInterval(timer);
-  }, []);
+  }, [animating]);
 
   const gridData = useMemo(() => {
     if (!mounted) return [];
     return Array.from({ length: 100 }, () => ({
       delay: Math.random() * 0.5,
-      tx: (Math.random() - 0.5) * 200,
-      ty: (Math.random() - 0.5) * 200,
-      rot: (Math.random() - 0.5) * 45
+      tx: (Math.random() - 0.5) * 400,
+      ty: (Math.random() - 0.5) * 400,
+      rot: (Math.random() - 0.5) * 90
     }));
   }, [mounted]);
 
@@ -86,11 +85,11 @@ export function Hero() {
             priority={index === 0}
             data-ai-hint={slide.hint}
           />
-          <div className="absolute inset-0 bg-black/50 z-10" />
+          <div className="absolute inset-0 bg-black/40 z-10" />
         </div>
       ))}
 
-      {/* Enhanced Break Transition Layer */}
+      {/* Shatter Transition Layer */}
       {animating && mounted && (
         <div className="absolute inset-0 grid grid-cols-10 grid-rows-10 z-20 pointer-events-none">
           {gridData.map((data, i) => (
@@ -99,7 +98,6 @@ export function Hero() {
               className="bg-primary animate-grid-shatter"
               style={{ 
                 animationDelay: `${data.delay}s`,
-                // Pass random values via CSS variables for the animation
                 '--tx': `${data.tx}px`,
                 '--ty': `${data.ty}px`,
                 '--rot': `${data.rot}deg`
@@ -112,11 +110,11 @@ export function Hero() {
       {/* Centered Content */}
       <div className="relative z-30 h-full flex flex-col items-center justify-center text-center px-6">
         <div key={`text-${current}`} className="flex flex-col items-center">
-          <span className="text-secondary text-lg md:text-xl font-bold tracking-[0.3em] uppercase mb-4 animate-text-reveal">
+          <span className="text-secondary text-lg md:text-xl font-bold tracking-[0.4em] uppercase mb-6 animate-text-reveal">
             {slides[current].welcome}
           </span>
           
-          <h1 className="text-4xl md:text-7xl lg:text-8xl font-bold text-white mb-10 max-w-5xl leading-[1.1] uppercase animate-text-reveal [animation-delay:0.1s]">
+          <h1 className="text-4xl md:text-7xl lg:text-8xl font-black text-white mb-12 max-w-6xl leading-[1.05] uppercase animate-text-reveal [animation-delay:0.1s] drop-shadow-2xl">
             {slides[current].title}
           </h1>
 
@@ -124,7 +122,7 @@ export function Hero() {
             <Button 
               variant="outline" 
               size="lg" 
-              className="rounded-none border-2 border-secondary text-secondary bg-transparent hover:bg-secondary hover:text-primary px-12 h-14 text-lg font-bold transition-all"
+              className="rounded-none border-2 border-secondary text-secondary bg-transparent hover:bg-secondary hover:text-primary px-16 h-16 text-xl font-black transition-all uppercase tracking-tighter"
               asChild
             >
               <Link href="#contact">Contact Us Now</Link>
@@ -136,21 +134,21 @@ export function Hero() {
       {/* Navigation Arrows */}
       <button
         onClick={handlePrevSlide}
-        className="absolute left-6 top-1/2 -translate-y-1/2 z-40 p-3 text-white/50 hover:text-secondary transition-colors hidden md:block"
+        className="absolute left-8 top-1/2 -translate-y-1/2 z-40 p-3 text-white/30 hover:text-secondary transition-colors hidden md:block"
         aria-label="Previous slide"
       >
-        <ChevronLeft size={64} strokeWidth={1} />
+        <ChevronLeft size={80} strokeWidth={1} />
       </button>
       <button
         onClick={handleNextSlide}
-        className="absolute right-6 top-1/2 -translate-y-1/2 z-40 p-3 text-white/50 hover:text-secondary transition-colors hidden md:block"
+        className="absolute right-8 top-1/2 -translate-y-1/2 z-40 p-3 text-white/30 hover:text-secondary transition-colors hidden md:block"
         aria-label="Next slide"
       >
-        <ChevronRight size={64} strokeWidth={1} />
+        <ChevronRight size={80} strokeWidth={1} />
       </button>
 
       {/* Progress Indicators */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-40 flex gap-4">
+      <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-40 flex gap-6">
         {slides.map((_, i) => (
           <button
             key={i}
@@ -162,7 +160,7 @@ export function Hero() {
             }}
             className={cn(
               "h-1.5 transition-all duration-300 rounded-none",
-              i === current ? "w-16 bg-secondary" : "w-4 bg-white/30 hover:bg-white/60"
+              i === current ? "w-24 bg-secondary" : "w-6 bg-white/20 hover:bg-white/50"
             )}
           />
         ))}
