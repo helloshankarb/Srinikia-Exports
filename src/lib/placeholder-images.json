@@ -1,3 +1,52 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-spices",
+      "description": "Rich assortment of Indian spices",
+      "imageUrl": "https://images.unsplash.com/photo-1606914469725-e398d2f1d7ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxpbmRpYW4lMjBzcGljZXN8ZW58MHx8fHwxNzcyMzQ3MDgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "indian spices"
+    },
+    {
+      "id": "hero-vegetables",
+      "description": "Fresh organic vegetables ready for export",
+      "imageUrl": "https://images.unsplash.com/photo-1610348725531-843dff563e2c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxmcmVzaCUyMHZlZ2V0YWJsZXN8ZW58MHx8fHwxNzcyMzQyODYwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fresh vegetables"
+    },
+    {
+      "id": "hero-factory",
+      "description": "State of the art processing facility",
+      "imageUrl": "https://images.unsplash.com/photo-1551884171-004163219904?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxmb29kJTIwZmFjdG9yeXxlbnwwfHx8fDE3NzIzNDcwODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "food factory"
+    },
+    {
+      "id": "product-chili-powder",
+      "description": "Premium quality chili powder",
+      "imageUrl": "https://images.unsplash.com/photo-1607672632458-9eb56696346b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjaGlsaSUyMHBvd2RlcnxlbnwwfHx8fDE3NzIzNDcwODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "chili powder"
+    },
+    {
+      "id": "product-turmeric",
+      "description": "High curcumin turmeric powder",
+      "imageUrl": "https://images.unsplash.com/photo-1698556735172-1b5b3cd9d2ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx0dXJtZXJpYyUyMHBvd2RlcnxlbnwwfHx8fDE3NzIyNjIyOTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "turmeric powder"
+    },
+    {
+      "id": "product-pickles",
+      "description": "Authentic homemade style pickles",
+      "imageUrl": "https://images.unsplash.com/photo-1663136618135-d11b4dbd22c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtYW5nbyUyMHBpY2tsZXxlbnwwfHx8fDE3NzIzNDcwODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mango pickle"
+    },
+    {
+      "id": "product-ginger",
+      "description": "Fresh ginger roots for export",
+      "imageUrl": "https://images.unsplash.com/photo-1741517802684-ba07c444a5d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZnJlc2glMjBnaW5nZXJ8ZW58MHx8fHwxNzcyMzQ3MDgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fresh ginger"
+    },
+    {
+      "id": "about-us",
+      "description": "SBNB Global Foods heritage and fields",
+      "imageUrl": "https://images.unsplash.com/photo-1771860108097-9e4214acfd37?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzcGljZSUyMHBsYW50YXRpb258ZW58MHx8fHwxNzcyMzQ3MDgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "spice plantation"
+    }
+  ]
 }
