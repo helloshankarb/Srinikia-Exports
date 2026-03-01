@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -84,7 +85,7 @@ export function Footer() {
               </li>
               <li className="flex gap-4 items-center">
                 <Phone className="text-secondary shrink-0" />
-                <span className="text-white/80 text-sm font-bold">+91 9106758216</span>
+                <span className="text-white/80 text-sm font-bold">+91 9550696255</span>
               </li>
               <li className="flex gap-4 items-center">
                 <Mail className="text-secondary shrink-0" />

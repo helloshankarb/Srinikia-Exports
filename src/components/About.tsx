@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -40,7 +41,7 @@ export function About() {
     <section id="about" className="relative">
       {/* Dynamic Expanding WhatsApp Button */}
       <Link 
-        href="https://wa.me/919106758216" 
+        href="https://wa.me/919550696255" 
         target="_blank"
         className="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[100] flex items-center justify-start w-[45px] h-[45px] bg-[#00d757] rounded-full shadow-lg transition-all duration-300 group overflow-hidden hover:w-[150px] hover:rounded-[40px] active:translate-x-[2px] active:translate-y-[2px]"
       >

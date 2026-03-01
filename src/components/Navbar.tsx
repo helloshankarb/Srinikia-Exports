@@ -43,7 +43,7 @@ export function Navbar() {
 
   return (
     <>
-      {/* Top Info Bar - Reduced padding from py-3 to py-2 */}
+      {/* Top Info Bar */}
       <div className="bg-primary text-white py-2 hidden md:block border-b border-secondary/30">
         <div className="container mx-auto px-6 flex justify-between items-center text-sm font-medium">
           <div className="flex gap-6 items-center">
@@ -60,7 +60,7 @@ export function Navbar() {
           <div className="flex gap-8 items-center">
             <div className="flex items-center gap-2 group cursor-pointer">
               <Phone className="w-4 h-4 text-secondary" />
-              <span className="group-hover:text-secondary transition-colors text-xs md:text-sm">+91 9106758216</span>
+              <span className="group-hover:text-secondary transition-colors text-xs md:text-sm">+91 9550696255</span>
             </div>
             <div className="w-px h-4 bg-white/20" />
             <div className="flex items-center gap-2 group cursor-pointer">
@@ -71,7 +71,7 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Main Logo Nav Bar - Reduced padding py-5 -> py-2 and py-3 -> py-1 */}
+      {/* Main Logo Nav Bar */}
       <header
         className={cn(
           "fixed left-0 right-0 z-50 transition-all duration-300 border-b border-border/10",
@@ -85,7 +85,7 @@ export function Navbar() {
             <Logo />
           </Link>
 
-          {/* Desktop Nav - Dark Text for White Background */}
+          {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-10">
             {navLinks.map((link) => (
               <Link
@@ -98,7 +98,7 @@ export function Navbar() {
             ))}
           </nav>
 
-          {/* Mobile Menu Toggle - Dark Icon */}
+          {/* Mobile Menu Toggle */}
           <button
             className="lg:hidden text-primary p-2"
             onClick={() => setIsOpen(true)}

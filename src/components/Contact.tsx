@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -52,7 +53,7 @@ export function Contact() {
                   </div>
                   <div>
                     <p className="text-white/40 text-sm">Call Us</p>
-                    <p className="text-lg font-medium">+91 9106758216</p>
+                    <p className="text-lg font-medium">+91 9550696255</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-6">
