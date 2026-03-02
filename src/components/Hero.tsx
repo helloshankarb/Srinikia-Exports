@@ -109,7 +109,7 @@ export function Hero() {
 
           <div className="flex justify-center animate-text-reveal [animation-delay:0.3s] w-full sm:w-auto">
             <Link href="#contact" className="boton-elegante no-underline">
-              Export Inquiry
+              Contact Us Now
             </Link>
           </div>
         </div>
