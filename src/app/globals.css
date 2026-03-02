@@ -40,40 +40,28 @@
 
 @layer utilities {
   .boton-elegante {
-    @apply px-8 py-4 border-2 border-[#2c2c2c] bg-[#1a1a1a] text-white text-lg cursor-pointer rounded-[30px] transition-all duration-500 outline-none relative overflow-hidden font-bold flex items-center justify-center;
+    @apply px-10 py-3 border border-white/30 bg-white/5 text-white text-sm md:text-base cursor-pointer rounded-full transition-all duration-700 outline-none relative overflow-hidden font-black uppercase tracking-[0.2em] flex items-center justify-center backdrop-blur-md;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   }
 
   .boton-elegante::before {
     content: "";
-    @apply absolute top-0 -left-full w-full h-full skew-x-[-25deg] transition-all duration-700 ease-in-out;
+    @apply absolute top-0 -left-[150%] w-[100%] h-full skew-x-[-30deg] transition-all duration-1000 ease-in-out;
     background: linear-gradient(
       to right,
       transparent,
-      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.4),
       transparent
     );
   }
 
   .boton-elegante:hover::before {
-    @apply left-full;
-  }
-
-  .boton-elegante::after {
-    content: "";
-    @apply absolute top-0 left-0 w-full h-full scale-0 transition-transform duration-500 rounded-full;
-    background: radial-gradient(
-      circle,
-      rgba(255, 255, 255, 0.15) 0%,
-      rgba(255, 255, 255, 0) 70%
-    );
-  }
-
-  .boton-elegante:hover::after {
-    @apply scale-[4];
+    @apply left-[150%];
   }
 
   .boton-elegante:hover {
-    @apply border-[#666666] bg-[#292929] shadow-xl;
+    @apply border-white/50 bg-white/15 scale-105;
+    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.1);
   }
 
   @keyframes shatter-reveal {
