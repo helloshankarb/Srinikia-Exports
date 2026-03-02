@@ -12,7 +12,7 @@
     --popover-foreground: 152 40% 10%;
     --primary: 152 100% 18%; /* Deep Natural Green */
     --primary-foreground: 0 0% 100%;
-    --secondary: 25 40% 45%; /* Earth Brown */
+    --secondary: 43 32% 56%; /* Sophisticated Muted Gold */
     --secondary-foreground: 0 0% 100%;
     --muted: 120 20% 90%;
     --muted-foreground: 152 25% 40%;
@@ -24,7 +24,7 @@
     --input: 152 32% 91%;
     --ring: 152 100% 20%;
     --chart-1: 152 100% 20%;
-    --chart-2: 25 40% 45%;
+    --chart-2: 43 32% 56%;
     --radius: 0;
   }
 }
@@ -40,28 +40,44 @@
 
 @layer utilities {
   .boton-elegante {
-    @apply px-10 py-3 border border-white/30 bg-white/5 text-white text-sm md:text-base cursor-pointer rounded-full transition-all duration-700 outline-none relative overflow-hidden font-black uppercase tracking-[0.2em] flex items-center justify-center backdrop-blur-md;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    @apply px-10 py-3 border border-white/20 bg-black/40 text-white text-sm md:text-base cursor-pointer rounded-full transition-all duration-500 outline-none relative overflow-hidden font-black uppercase tracking-[0.2em] flex items-center justify-center backdrop-blur-md;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
   }
 
+  .boton-elegante::after {
+    content: "";
+    @apply absolute top-0 left-0 w-full h-full opacity-0 transition-opacity duration-500;
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.15) 0%,
+      transparent 70%
+    );
+  }
+
+  .boton-elegante:hover {
+    @apply border-white/40 bg-black/60 scale-105;
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+  }
+
+  .boton-elegante:hover::after {
+    @apply opacity-100;
+    transform: scale(2);
+  }
+
+  /* Glossy Shine Effect */
   .boton-elegante::before {
     content: "";
     @apply absolute top-0 -left-[150%] w-[100%] h-full skew-x-[-30deg] transition-all duration-1000 ease-in-out;
     background: linear-gradient(
       to right,
       transparent,
-      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.3),
       transparent
     );
   }
 
   .boton-elegante:hover::before {
     @apply left-[150%];
-  }
-
-  .boton-elegante:hover {
-    @apply border-white/50 bg-white/15 scale-105;
-    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.1);
   }
 
   @keyframes shatter-reveal {

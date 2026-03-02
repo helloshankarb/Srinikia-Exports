@@ -28,7 +28,7 @@ export function Stats() {
           {features.map((item, i) => (
             <div 
               key={i} 
-              className="group relative w-full sm:w-[280px] h-[320px] md:h-[360px] rounded-none bg-white p-8 md:p-10 border-2 border-border transition-all duration-500 ease-out overflow-visible hover:border-primary hover:shadow-[0_20px_50px_-12px_rgba(0,90,43,0.2)] flex flex-col items-center justify-start text-center cursor-pointer"
+              className="group relative w-full sm:w-[280px] h-[320px] md:h-[360px] rounded-none bg-white p-8 md:p-10 border border-border transition-all duration-500 ease-out overflow-visible hover:border-secondary hover:shadow-[0_20px_50px_-12px_rgba(43,32,56,0.1)] flex flex-col items-center justify-start text-center cursor-pointer"
             >
               <div className="mb-6 md:mb-8 w-20 h-20 md:w-24 md:h-24 relative flex items-center justify-center">
                 <Image 
@@ -49,7 +49,7 @@ export function Stats() {
                 </p>
               </div>
               
-              <button className="absolute left-1/2 bottom-0 -translate-x-1/2 translate-y-[125%] w-[75%] rounded-none border-none bg-primary text-white text-[10px] md:text-xs font-black py-3 md:py-4 opacity-0 transition-all duration-500 ease-out group-hover:translate-y-[-50%] group-hover:opacity-100 shadow-2xl tracking-widest uppercase">
+              <button className="absolute left-1/2 bottom-0 -translate-x-1/2 translate-y-[125%] w-[75%] rounded-none border-none bg-secondary text-white text-[10px] md:text-xs font-black py-3 md:py-4 opacity-0 transition-all duration-500 ease-out group-hover:translate-y-[-50%] group-hover:opacity-100 shadow-2xl tracking-widest uppercase">
                 More info
               </button>
             </div>

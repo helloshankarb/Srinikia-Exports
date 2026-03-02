@@ -58,13 +58,13 @@ export function About() {
         </div>
       </div>
 
-      {/* Farmer Based Model */}
+      {/* Delivering Purity Globally Section */}
       <div className="py-24 bg-primary text-white overflow-hidden relative">
         <div className="container mx-auto px-6">
           <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
             <div className="lg:w-1/2">
-              <span className="text-secondary text-xl font-bold tracking-widest block mb-4 uppercase">Our Core</span>
-              <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight uppercase">The Farmer-Based Model</h2>
+              <span className="text-secondary text-xl font-bold tracking-widest block mb-4 uppercase">Our Commitment</span>
+              <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight uppercase">Delivering Purity Globally</h2>
               <p className="text-lg text-white/80 mb-8 leading-relaxed">We work directly with local farmer groups and organic clusters. By eliminating middlemen, we ensure fair income for our farmers and 100% traceable, fresh products for our global partners.</p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {[
@@ -73,7 +73,7 @@ export function About() {
                   { icon: ShieldCheck, text: "No Middlemen" },
                   { icon: CheckCircle2, text: "Full Traceability" }
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-4 bg-white/5 p-4 border border-white/10">
+                  <div key={i} className="flex items-center gap-4 bg-white/5 p-4 border border-white/10 transition-colors hover:bg-white/10">
                     <item.icon className="text-secondary w-6 h-6" />
                     <span className="font-bold uppercase tracking-tight">{item.text}</span>
                   </div>
@@ -82,31 +82,36 @@ export function About() {
             </div>
             <div className="lg:w-1/2 w-full">
               <div className="relative aspect-[4/3] w-full">
-                <Image src={purityImageUrl} alt="Farmer Network" fill className="object-cover" sizes="50vw" data-ai-hint="farmer harvesting" />
+                <Image src={purityImageUrl} alt="Delivering Purity" fill className="object-cover" sizes="50vw" data-ai-hint="farmer harvesting" />
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Vision & Mission */}
+      {/* Excellence Section */}
       <div className="py-24 bg-white border-b border-border">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-            <div className="p-12 border-2 border-primary/10 hover:border-primary transition-all group">
-              <h3 className="text-3xl font-bold text-primary mb-6 group-hover:text-secondary">Our Vision</h3>
-              <p className="text-lg text-muted-foreground">To become a globally trusted agricultural export brand while uplifting rural farming communities and promoting sustainable excellence across 25+ countries.</p>
-            </div>
-            <div className="p-12 border-2 border-primary/10 hover:border-primary transition-all group">
-              <h3 className="text-3xl font-bold text-primary mb-6 group-hover:text-secondary">Our Mission</h3>
-              <ul className="space-y-4">
+          <div className="flex flex-col lg:flex-row items-center gap-16">
+            <div className="lg:w-1/2">
+              <span className="text-primary text-xl font-bold tracking-widest block mb-4 uppercase">Standard of Quality</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-primary mb-8 leading-tight">Excellence in Every Batch</h2>
+              <ul className="space-y-4 mb-8">
                 {["Support farmers with fair pricing", "Promote sustainable organic farming", "Deliver premium quality produce", "Maintain global export standards"].map((item, i) => (
                   <li key={i} className="flex items-start gap-4 text-muted-foreground">
                     <CheckCircle2 className="text-secondary w-5 h-5 shrink-0 mt-1" />
-                    <span className="text-lg">{item}</span>
+                    <span className="text-lg font-medium">{item}</span>
                   </li>
                 ))}
               </ul>
+              <div className="p-8 border-l-4 border-secondary bg-primary/5 italic text-lg text-primary">
+                "Our vision is to become a globally trusted agricultural export brand while uplifting rural farming communities and promoting sustainable excellence across 25+ countries."
+              </div>
+            </div>
+            <div className="lg:w-1/2 w-full">
+              <div className="relative aspect-[4/3] w-full">
+                <Image src={qualityImageUrl} alt="Excellence in Every Batch" fill className="object-cover" sizes="50vw" data-ai-hint="organic vegetables market" />
+              </div>
             </div>
           </div>
         </div>
@@ -170,16 +175,16 @@ export function WhyChooseUs() {
           <div className="lg:w-1/2 w-full grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="bg-white/5 p-10 border border-white/10 hover:bg-white/10 transition-colors text-center">
               <h4 className="text-secondary text-5xl font-bold mb-4">24/7</h4>
-              <p className="text-white/60">Export Logistics Support</p>
+              <p className="text-white/60 font-bold uppercase tracking-widest text-xs">Export Support</p>
             </div>
             <div className="bg-white/5 p-10 border border-white/10 hover:bg-white/10 transition-colors text-center">
               <h4 className="text-secondary text-5xl font-bold mb-4">100%</h4>
-              <p className="text-white/60">Farmer-Direct Sourcing</p>
+              <p className="text-white/60 font-bold uppercase tracking-widest text-xs">Farmer Direct</p>
             </div>
             <div className="sm:col-span-2 bg-secondary p-10 text-primary flex items-center justify-between gap-4">
               <div>
                 <h4 className="text-3xl font-bold mb-2 uppercase">Global Presence</h4>
-                <p className="text-primary/70">Middle East | Europe | Asia | USA</p>
+                <p className="text-primary/70 font-bold">Middle East | Europe | Asia | USA</p>
               </div>
               <Globe className="w-16 h-16 opacity-20" />
             </div>
