@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -19,143 +18,134 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-const categories = ["Spices", "Pickles", "Grains", "Masala Powders"];
+const categories = ["Spices", "Grains", "Vegetables", "Fruits"];
 
 const products = [
-  // Spices (4)
+  // Spices
   {
-    name: "Premium Red Chili",
+    name: "Turmeric",
     category: "Spices",
-    image: "https://images.unsplash.com/photo-1607672632458-9eb56696346b?q=80&w=600",
-    description: "Hand-picked, sun-dried red chilies known for vibrant color and balanced heat.",
-    hint: "red chili"
+    image: "https://i.ibb.co/6cGv78nT/Whats-App-Image-2026-02-23-at-9-21-02-AM.jpg",
+    description: "High-curcumin turmeric from sustainable Indian farms.",
+    origin: "Erode, Tamil Nadu",
+    grade: "Export Grade A"
   },
   {
-    name: "Curcumin Turmeric",
+    name: "Red Chilli",
     category: "Spices",
-    image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?q=80&w=600",
-    description: "Pure turmeric fingers with high curcumin content, processed naturally.",
-    hint: "turmeric"
+    image: "https://i.ibb.co/Xx7GcTQQ/Whats-App-Image-2026-02-23-at-10-40-03-AM.jpg",
+    description: "Premium sun-dried red chilies with balanced heat and vibrant color.",
+    origin: "Guntur, Andhra Pradesh",
+    grade: "Premium"
+  },
+  {
+    name: "Coriander",
+    category: "Spices",
+    image: "https://i.ibb.co/hRJCqzkr/Whats-App-Image-2026-02-18-at-8-57-55-AM-1.jpg",
+    description: "Aromatic coriander seeds cleaned and graded for global standards.",
+    origin: "Gujarat/Rajasthan",
+    grade: "Eagle"
   },
   {
     name: "Black Pepper",
     category: "Spices",
     image: "https://images.unsplash.com/photo-1599940824399-b87987cb972d?q=80&w=600",
-    description: "Bold and aromatic black pepper corn sourced from the Western Ghats.",
-    hint: "black pepper"
-  },
-  {
-    name: "Coriander Seeds",
-    category: "Spices",
-    image: "https://images.unsplash.com/photo-1609102041953-7c03b1453873?q=80&w=600",
-    description: "Freshly harvested coriander seeds with a citrusy, nutty profile.",
-    hint: "coriander"
+    description: "Bold aromatic black pepper from the Western Ghats.",
+    origin: "Kerala",
+    grade: "MG-1"
   },
 
-  // Pickles (4)
+  // Grains
   {
-    name: "Classic Mango",
-    category: "Pickles",
-    image: "https://images.unsplash.com/photo-1663136618135-d11b4dbd22c7?q=80&w=600",
-    description: "Traditional spicy mango pickle made with mustard oil and authentic spices.",
-    hint: "mango pickle"
-  },
-  {
-    name: "Spicy Lime",
-    category: "Pickles",
-    image: "https://images.unsplash.com/photo-1601050690597-df056fb1cd2a?q=80&w=600",
-    description: "Tangy and hot lime pickle, aged naturally for deep flavor development.",
-    hint: "lemon pickle"
-  },
-  {
-    name: "Garlic Pickle",
-    category: "Pickles",
-    image: "https://images.unsplash.com/photo-1598512752271-33f913a5af13?q=80&w=600",
-    description: "Robust garlic cloves infused with a secret blend of aromatic Indian spices.",
-    hint: "garlic pickle"
-  },
-  {
-    name: "Premium Mixed Pickle",
-    category: "Pickles",
-    image: "https://images.unsplash.com/photo-1589187151032-573a91317445?q=80&w=600",
-    description: "A colorful assortment of seasonal vegetables in a rich, spicy oil base.",
-    hint: "mixed pickle"
-  },
-
-  // Grains (4)
-  {
-    name: "Long-Grain Basmati",
+    name: "Basmati Rice",
     category: "Grains",
     image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=600",
-    description: "Aromatic extra-long grain Basmati rice, aged to perfection for non-sticky texture.",
-    hint: "basmati rice"
+    description: "Extra long grain aromatic Basmati rice, aged to perfection.",
+    origin: "Himalayan Foothills",
+    grade: "Super Fine"
   },
   {
-    name: "Premium Durum Wheat",
+    name: "Premium Wheat",
     category: "Grains",
     image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?q=80&w=600",
-    description: "High-protein golden wheat kernels sourced from fertile Indian plains.",
-    hint: "wheat grains"
+    description: "High protein durum wheat sourced directly from contract farmers.",
+    origin: "Madhya Pradesh",
+    grade: "Sharbati"
   },
   {
-    name: "Green Moong Dal",
-    category: "Grains",
-    image: "https://images.unsplash.com/photo-1585993439219-1110493ef147?q=80&w=600",
-    description: "Nutritious, high-protein pulses cleaned and sorted for global kitchen standards.",
-    hint: "moong dal"
-  },
-  {
-    name: "Organic Pearl Millets",
+    name: "Millets",
     category: "Grains",
     image: "https://images.unsplash.com/photo-1509358271058-acd22cc93898?q=80&w=600",
-    description: "Gluten-free, nutrient-rich ancient grains packed with essential minerals.",
-    hint: "pearl millet"
+    description: "Nutritious and organic ancient grains for the health-conscious global market.",
+    origin: "Maharashtra",
+    grade: "Organic Certified"
   },
 
-  // Masala Powders (4)
+  // Vegetables
   {
-    name: "Coriander Powder",
-    category: "Masala Powders",
-    image: "https://i.ibb.co/hRJCqzkr/Whats-App-Image-2026-02-18-at-8-57-55-AM-1.jpg",
-    description: "Pure and aromatic coriander powder made from the finest dried seeds.",
-    hint: "coriander powder"
+    name: "Onion",
+    category: "Vegetables",
+    image: "https://images.unsplash.com/photo-1508747703725-719777637510?q=80&w=600",
+    description: "Fresh red and pink onions with excellent shelf life and pungency.",
+    origin: "Nashik, Maharashtra",
+    grade: "Top Quality"
   },
   {
-    name: "Turmeric Powder",
-    category: "Masala Powders",
-    image: "https://i.ibb.co/6cGv78nT/Whats-App-Image-2026-02-23-at-9-21-02-AM.jpg",
-    description: "High-curcumin turmeric powder, processed to retain its natural healing properties.",
-    hint: "turmeric powder"
+    name: "Potato",
+    category: "Vegetables",
+    image: "https://images.unsplash.com/photo-1518977676601-b53f02ac6d31?q=80&w=600",
+    description: "Firm and fresh potatoes suitable for retail and industrial use.",
+    origin: "Uttar Pradesh",
+    grade: "Grade A"
   },
   {
-    name: "Biryani Masala",
-    category: "Masala Powders",
-    image: "https://i.ibb.co/0R7hNBMg/Whats-App-Image-2026-02-23-at-9-21-04-AM.jpg",
-    description: "An exotic and fragrant blend of spices for the perfect authentic biryani.",
-    hint: "biryani spice"
+    name: "Garlic",
+    category: "Vegetables",
+    image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?q=80&w=600",
+    description: "Bold white garlic cloves with strong aroma and long shelf life.",
+    origin: "Gujarat",
+    grade: "Export Size"
+  },
+
+  // Fruits
+  {
+    name: "Mango",
+    category: "Fruits",
+    image: "https://images.unsplash.com/photo-1553279768-865429fa0078?q=80&w=600",
+    description: "Premium Alphonso and Kesar mangoes from GI-tagged farms.",
+    origin: "Ratnagiri/Gujarat",
+    grade: "Premium Export"
   },
   {
-    name: "Armoor Mirchi Powder",
-    category: "Masala Powders",
-    image: "https://i.ibb.co/Xx7GcTQQ/Whats-App-Image-2026-02-23-at-10-40-03-AM.jpg",
-    description: "Premium quality chili powder from Armoor, known for its deep red color and balanced heat.",
-    hint: "chili powder"
+    name: "Pomegranate",
+    category: "Fruits",
+    image: "https://images.unsplash.com/photo-1615484477778-ca3b77940c25?q=80&w=600",
+    description: "Bhagwa variety pomegranates known for deep red arils and sweetness.",
+    origin: "Solapur, Maharashtra",
+    grade: "A-Grade"
+  },
+  {
+    name: "Banana",
+    category: "Fruits",
+    image: "https://images.unsplash.com/photo-1603833665858-e61d17a86224?q=80&w=600",
+    description: "Cavendish bananas carefully harvested and packed for global sea transit.",
+    origin: "Andhra Pradesh",
+    grade: "Export Standard"
   }
 ];
 
 export function Products() {
   const [activeTab, setActiveTab] = useState("Spices");
-
   const filteredProducts = products.filter(p => p.category === activeTab);
 
   return (
     <section id="products" className="py-24 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <Badge variant="secondary" className="mb-4 rounded-none">Our Catalog</Badge>
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">Exquisite Product Range</h2>
+          <Badge variant="secondary" className="mb-4 rounded-none bg-secondary text-white">Our Product Categories</Badge>
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 uppercase">Nature's Best Produce</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Discover our comprehensive selection of high-quality Indian foods, meticulously processed and packed to retain their natural freshness and aroma.
+            From Indian Farms to Global Tables—pure, traceable, and premium quality agricultural exports.
           </p>
         </div>
 
@@ -166,7 +156,7 @@ export function Products() {
                 <TabsTrigger 
                   key={cat} 
                   value={cat} 
-                  className="rounded-none px-8 py-2.5 data-[state=active]:bg-primary data-[state=active]:text-white transition-all font-bold uppercase tracking-tight text-xs"
+                  className="rounded-none px-8 py-3 data-[state=active]:bg-primary data-[state=active]:text-white transition-all font-bold uppercase tracking-tight text-xs"
                 >
                   {cat}
                 </TabsTrigger>
@@ -178,67 +168,45 @@ export function Products() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {filteredProducts.map((product, idx) => (
                 <div key={idx} className="group bg-background rounded-none overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-border/50">
-                  <div className="relative h-60 overflow-hidden">
-                    <Image 
-                      src={product.image} 
-                      alt={product.name} 
-                      fill 
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                      data-ai-hint={product.hint}
-                    />
+                  <div className="relative h-64 overflow-hidden">
+                    <Image src={product.image} alt={product.name} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
                     <div className="absolute top-4 left-4">
-                      <Badge className="bg-secondary text-primary hover:bg-secondary rounded-none font-bold uppercase text-[10px] tracking-widest">{product.category}</Badge>
+                      <Badge className="bg-secondary text-white rounded-none font-bold uppercase text-[10px] tracking-widest">{product.category}</Badge>
                     </div>
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-bold text-primary mb-2 uppercase tracking-tight">{product.name}</h3>
-                    <p className="text-muted-foreground text-sm mb-6 line-clamp-2 leading-relaxed">{product.description}</p>
+                    <p className="text-muted-foreground text-sm mb-4 line-clamp-2">{product.description}</p>
                     
                     <div className="flex gap-3">
                       <Dialog>
                         <DialogTrigger asChild>
                           <Button className="flex-1 bg-primary hover:bg-primary/90 rounded-none h-11 font-bold uppercase tracking-widest text-[10px]">
-                            Enquire Now
+                            Export Inquiry
                           </Button>
                         </DialogTrigger>
-                        <DialogContent className="sm:max-w-[500px] rounded-none border-none">
+                        <DialogContent className="sm:max-w-[500px] rounded-none">
                           <DialogHeader>
-                            <DialogTitle className="text-2xl text-primary font-bold">Product Enquiry</DialogTitle>
+                            <DialogTitle className="text-2xl text-primary font-bold">Export Quote Inquiry</DialogTitle>
                             <DialogDescription>
-                              Send us an enquiry for <span className="font-bold text-secondary">{product.name}</span>. We will get back to you with pricing and details.
+                              Get current pricing and capacity for <span className="font-bold text-secondary">{product.name}</span>.
                             </DialogDescription>
                           </DialogHeader>
                           <form className="space-y-4 py-4">
                             <div className="grid grid-cols-2 gap-4">
-                              <div className="space-y-2">
-                                <label className="text-sm font-bold text-primary uppercase">Full Name</label>
-                                <Input className="rounded-none h-12 bg-muted/50 border-none" placeholder="John Doe" />
-                              </div>
-                              <div className="space-y-2">
-                                <label className="text-sm font-bold text-primary uppercase">Email</label>
-                                <Input className="rounded-none h-12 bg-muted/50 border-none" type="email" placeholder="john@example.com" />
-                              </div>
+                              <Input className="rounded-none h-12" placeholder="Company Name" />
+                              <Input className="rounded-none h-12" placeholder="Country" />
                             </div>
-                            <div className="space-y-2">
-                              <label className="text-sm font-bold text-primary uppercase">Estimated Quantity</label>
-                              <Input className="rounded-none h-12 bg-muted/50 border-none" placeholder="e.g. 500 KG" />
-                            </div>
-                            <div className="space-y-2">
-                              <label className="text-sm font-bold text-primary uppercase">Special Requirements</label>
-                              <Textarea className="rounded-none bg-muted/50 border-none" placeholder="Any specific packing or shipping needs?" rows={4} />
-                            </div>
+                            <Input className="rounded-none h-12" placeholder="Est. Quantity (MT)" />
+                            <Textarea className="rounded-none" placeholder="Packaging requirements?" rows={4} />
                             <DialogFooter>
-                              <Button type="submit" className="w-full bg-secondary text-primary hover:bg-primary hover:text-white rounded-none h-14 font-bold uppercase tracking-widest">
-                                Send Enquiry
+                              <Button type="submit" className="w-full bg-secondary text-white hover:bg-primary rounded-none h-14 font-bold uppercase tracking-widest">
+                                Submit Quote Request
                               </Button>
                             </DialogFooter>
                           </form>
                         </DialogContent>
                       </Dialog>
-                      
-                      <Button variant="outline" size="icon" className="border-primary/20 text-primary hover:bg-primary hover:text-white rounded-none h-11 w-11 shrink-0">
-                        <Info className="w-4 h-4" />
-                      </Button>
                     </div>
                   </div>
                 </div>

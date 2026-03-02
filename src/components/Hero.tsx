@@ -9,20 +9,20 @@ import { cn } from "@/lib/utils";
 const slides = [
   {
     image: "https://images.unsplash.com/photo-1606914469725-e398d2f1d7ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920",
-    welcome: "WELCOME TO",
-    title: "Shree Bhumi Natures Best Pvt Ltd",
+    welcome: "SHREE BHUMI NATURE'S BEST",
+    title: "From Indian Farms to Global Tables",
     hint: "indian spices"
   },
   {
-    image: "https://oesexportimport.com/wp-content/uploads/2024/11/165.webp",
-    welcome: "TRUSTED GLOBAL PARTNER",
-    title: "Supply Chain Excellence Redefined",
-    hint: "logistics center"
+    image: "https://ml0k8npvi8h7.i.optimole.com/cb:K2_q.4551d/w:1000/h:667/q:mauto/f:best/https://freshlineexim.com/wp-content/uploads/2023/02/5a874b9ace.jpg",
+    welcome: "FARMER-BASED EXPORT",
+    title: "Uplifting Communities Globally",
+    hint: "green farms"
   },
   {
     image: "https://firebasestorage.googleapis.com/v0/b/studio-2215204146-270ef.firebasestorage.app/o/shreebhumi%2FChatGPT%20Image%20Mar%201%2C%202026%2C%2010_41_41%20PM.png?alt=media&token=1036b945-2f29-45d7-901b-795db1f7de99",
     welcome: "PREMIUM QUALITY",
-    title: "The Finest Indian Agri-Exports",
+    title: "Nature's Best. Trusted Worldwide.",
     hint: "food factory"
   }
 ];
@@ -57,7 +57,6 @@ export function Hero() {
 
   return (
     <section id="home" className="relative h-screen w-full overflow-hidden bg-black">
-      {/* Background Slides */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 z-0">
           <Image
@@ -82,7 +81,6 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Modern Shatter Transition Grid */}
       {animating && (
         <div className="absolute inset-0 z-20 grid grid-cols-5 md:grid-cols-10 grid-rows-5 md:grid-rows-10 pointer-events-none">
           {[...Array(100)].map((_, i) => (
@@ -99,7 +97,6 @@ export function Hero() {
         </div>
       )}
 
-      {/* Centered Content */}
       <div className="relative z-30 h-full flex flex-col items-center justify-center text-center px-6">
         <div key={`text-${current}`} className="flex flex-col items-center w-full max-w-6xl">
           <span className="text-white/70 text-xs sm:text-sm md:text-xl font-bold tracking-[0.4em] uppercase mb-4 md:mb-6 animate-text-reveal">
@@ -110,18 +107,17 @@ export function Hero() {
             {slides[current].title}
           </h1>
 
-          <div className="animate-text-reveal [animation-delay:0.3s] w-full sm:w-auto">
-            <Link 
-              href="#contact" 
-              className="boton-elegante no-underline"
-            >
-              Contact Us Now
+          <div className="flex flex-wrap justify-center gap-4 animate-text-reveal [animation-delay:0.3s] w-full sm:w-auto">
+            <Link href="#products" className="boton-elegante no-underline">
+              Explore Products
+            </Link>
+            <Link href="#contact" className="boton-elegante bg-white !text-primary border-white no-underline">
+              Export Inquiry
             </Link>
           </div>
         </div>
       </div>
 
-      {/* Navigation Arrows */}
       <button
         onClick={handlePrevSlide}
         className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-40 p-3 text-white/30 hover:text-secondary transition-colors hidden sm:block"
@@ -137,7 +133,6 @@ export function Hero() {
         <ChevronRight size={64} strokeWidth={1} />
       </button>
 
-      {/* Progress Indicators */}
       <div className="absolute bottom-10 md:bottom-16 left-1/2 -translate-x-1/2 z-40 flex gap-4 md:gap-6">
         {slides.map((_, i) => (
           <button

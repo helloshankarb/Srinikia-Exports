@@ -10,10 +10,10 @@
     --card-foreground: 152 40% 10%;
     --popover: 0 0% 100%;
     --popover-foreground: 152 40% 10%;
-    --primary: 152 100% 18%; /* Darker Green */
+    --primary: 152 100% 18%; /* Deep Natural Green */
     --primary-foreground: 0 0% 100%;
-    --secondary: 75 90% 50%; /* Lime Green */
-    --secondary-foreground: 152 40% 10%;
+    --secondary: 25 40% 45%; /* Earth Brown */
+    --secondary-foreground: 0 0% 100%;
     --muted: 120 20% 90%;
     --muted-foreground: 152 25% 40%;
     --accent: 152 80% 25%;
@@ -24,11 +24,8 @@
     --input: 152 32% 91%;
     --ring: 152 100% 20%;
     --chart-1: 152 100% 20%;
-    --chart-2: 75 90% 50%;
-    --chart-3: 145 80% 40%;
-    --chart-4: 160 65% 60%;
-    --chart-5: 180 75% 55%;
-    --radius: 0; /* Sharp edges strictly enforced */
+    --chart-2: 25 40% 45%;
+    --radius: 0;
   }
 }
 
@@ -46,7 +43,6 @@
     @apply px-8 py-4 border-2 border-[#2c2c2c] bg-[#1a1a1a] text-white text-lg cursor-pointer rounded-[30px] transition-all duration-500 outline-none relative overflow-hidden font-bold flex items-center justify-center;
   }
 
-  /* Glossy Shine Effect */
   .boton-elegante::before {
     content: "";
     @apply absolute top-0 -left-full w-full h-full skew-x-[-25deg] transition-all duration-700 ease-in-out;
@@ -80,30 +76,18 @@
     @apply border-[#666666] bg-[#292929] shadow-xl;
   }
 
-  /* Shatter Reveal Animation */
   @keyframes shatter-reveal {
-    0% {
-      transform: scale(1.1) rotate(0deg);
-      opacity: 1;
-    }
-    100% {
-      transform: scale(0) rotate(15deg);
-      opacity: 0;
-    }
+    0% { transform: scale(1.1) rotate(0deg); opacity: 1; }
+    100% { transform: scale(0) rotate(15deg); opacity: 0; }
   }
 
   .animate-shatter {
     animation: shatter-reveal 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
   }
 
-  /* Ken Burns Effect */
   @keyframes ken-burns {
-    0% {
-      transform: scale(1);
-    }
-    100% {
-      transform: scale(1.1);
-    }
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
   }
 
   .animate-ken-burns {
@@ -111,14 +95,8 @@
   }
 
   @keyframes text-reveal-centered {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   .animate-text-reveal {
@@ -135,27 +113,16 @@
     height: 2px;
     bottom: -4px;
     left: 0;
-    background-color: hsl(var(--secondary));
+    @apply bg-secondary;
     transition: width 0.3s ease;
   }
   .nav-link-underline:hover::after {
     width: 100%;
   }
 
-  /* Custom Product Image Hover */
-  .product-image-container:hover img {
-    @apply scale-110;
-  }
-
   @keyframes fade-in-up {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   .animate-fade-in-up {

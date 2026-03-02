@@ -1,60 +1,36 @@
-
 "use client";
 
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, Phone, MapPin, ChevronRight } from "lucide-react";
+import { Mail, Phone, MapPin, ChevronRight, Globe } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
-  const bgImageUrl = "https://i.ibb.co/v667tdY6/image.png";
   const logoUrl = "https://firebasestorage.googleapis.com/v0/b/studio-2215204146-270ef.firebasestorage.app/o/WhatsApp%20Image%202026-03-01%20at%2010.37.55%20AM.jpeg?alt=media&token=22012649-933c-4e4e-9775-dc1f1198cfe0";
 
-  const Logo = () => (
-    <div className="relative h-12 w-48 md:h-16 md:w-64 bg-white/95 p-1">
-      <Image 
-        src={logoUrl} 
-        alt="Shree Bhumi Natures Best Logo" 
-        fill 
-        className="object-contain object-left"
-        sizes="(max-width: 768px) 192px, 256px"
-      />
-    </div>
-  );
-
   return (
-    <footer className="relative text-white pt-20 pb-10 overflow-hidden">
-      {/* Background Stack: Image with Brand Overlay */}
-      <div className="absolute inset-0 z-0">
-        <Image 
-          src={bgImageUrl}
-          alt="Footer Background"
-          fill
-          className="object-cover"
-          sizes="100vw"
-        />
-        {/* Deep brand green overlay for professional legibility */}
-        <div className="absolute inset-0 bg-primary/85 mix-blend-multiply" />
-      </div>
-
+    <footer className="relative bg-primary text-white pt-24 pb-12 overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
-          <div className="space-y-6">
-            <Link href="/" className="inline-block">
-              <Logo />
-            </Link>
-            <p className="text-white/80 leading-relaxed text-sm">
-              Global leaders in premium Indian food exports. Dedicated to quality, purity, and sustainable farming practices that bridge the gap between farms and the world.
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
+          <div className="space-y-8">
+            <div className="relative h-16 w-64 bg-white p-2">
+              <Image src={logoUrl} alt="SBNB Logo" fill className="object-contain" sizes="256px" />
+            </div>
+            <p className="text-white/70 leading-relaxed text-sm italic">
+              "Rooted in Nature. Trusted Worldwide."
+            </p>
+            <p className="text-white/60 text-sm">
+              Shree Bhumi Nature’s Best Pvt. Ltd. is a farmer-driven global export leader delivering pure, traceable, and sustainable Indian produce.
             </p>
           </div>
 
           <div>
-            <h4 className="text-xl font-bold mb-8 uppercase tracking-tighter border-b border-secondary/30 pb-2 inline-block">Quick Links</h4>
+            <h4 className="text-lg font-bold mb-8 uppercase tracking-widest border-b border-secondary pb-2 inline-block">Quick Links</h4>
             <ul className="space-y-4">
-              {["Home", "About Us", "Products", "Technology", "Contact Us"].map((item) => (
+              {["Home", "About Us", "Products", "Farmer Network", "Export & Quality"].map((item) => (
                 <li key={item}>
-                  <Link href={`#${item.toLowerCase().replace(' ', '-')}`} className="text-white/70 hover:text-secondary transition-colors flex items-center gap-2 group text-sm font-bold">
-                    <ChevronRight className="w-4 h-4 text-secondary opacity-0 group-hover:opacity-100 transition-all -ml-6 group-hover:ml-0" />
+                  <Link href={`#${item.toLowerCase().replace(' ', '-')}`} className="text-white/60 hover:text-secondary transition-colors flex items-center gap-2 group text-xs font-black uppercase tracking-widest">
+                    <ChevronRight className="w-4 h-4 text-secondary" />
                     {item}
                   </Link>
                 </li>
@@ -63,12 +39,12 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-xl font-bold mb-8 uppercase tracking-tighter border-b border-secondary/30 pb-2 inline-block">Product Catalog</h4>
+            <h4 className="text-lg font-bold mb-8 uppercase tracking-widest border-b border-secondary pb-2 inline-block">Our Focus</h4>
             <ul className="space-y-4">
-              {["Premium Spices", "Authentic Pickles", "Quality Grains", "Masala Powders"].map((item) => (
+              {["Premium Spices", "Fresh Vegetables", "Sustainable Grains", "Premium Fruits"].map((item) => (
                 <li key={item}>
-                  <Link href="#products" className="text-white/70 hover:text-secondary transition-colors flex items-center gap-2 group text-sm font-bold">
-                    <ChevronRight className="w-4 h-4 text-secondary opacity-0 group-hover:opacity-100 transition-all -ml-6 group-hover:ml-0" />
+                  <Link href="#products" className="text-white/60 hover:text-secondary transition-colors flex items-center gap-2 group text-xs font-black uppercase tracking-widest">
+                    <ChevronRight className="w-4 h-4 text-secondary" />
                     {item}
                   </Link>
                 </li>
@@ -77,30 +53,29 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-xl font-bold mb-8 uppercase tracking-tighter border-b border-secondary/30 pb-2 inline-block">Contact Info</h4>
+            <h4 className="text-lg font-bold mb-8 uppercase tracking-widest border-b border-secondary pb-2 inline-block">Contact Info</h4>
             <ul className="space-y-6">
               <li className="flex gap-4 items-start">
-                <MapPin className="text-secondary shrink-0 mt-1" />
-                <span className="text-white/80 text-sm leading-relaxed font-bold">48/48 papaiah Yadav Nagar colony chintal Hyderabad Telangana 500055</span>
+                <MapPin className="text-secondary shrink-0" />
+                <span className="text-white/70 text-sm leading-relaxed">48/48 papaiah Yadav Nagar colony chintal Hyderabad Telangana 500055</span>
               </li>
               <li className="flex gap-4 items-center">
                 <Phone className="text-secondary shrink-0" />
-                <span className="text-white/80 text-sm font-bold">+91 9550696255</span>
+                <span className="text-white/70 text-sm">+91 9550696255</span>
               </li>
               <li className="flex gap-4 items-center">
                 <Mail className="text-secondary shrink-0" />
-                <span className="text-white/80 text-sm font-bold">info@sbnbglobal.com</span>
+                <span className="text-white/70 text-sm">info@sbnbglobal.com</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-white/40 text-[10px] uppercase tracking-widest font-bold">
-          <p>© {currentYear} Shree Bhumi Natures Best Pvt Ltd. All Rights Reserved.</p>
-          <div className="flex gap-8">
+        <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] uppercase tracking-[0.3em] font-bold text-white/40">
+          <p>© {currentYear} Shree Bhumi Nature’s Best Pvt. Ltd. All Rights Reserved.</p>
+          <div className="flex gap-12">
             <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
-            <Link href="#" className="hover:text-white transition-colors">Sitemap</Link>
           </div>
         </div>
       </div>

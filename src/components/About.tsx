@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { CheckCircle2, Globe } from "lucide-react";
+import { CheckCircle2, Globe, Heart, ShieldCheck, Sprout } from "lucide-react";
 import Link from "next/link";
 
 export function About() {
@@ -9,36 +9,9 @@ export function About() {
   const purityImageUrl = "https://ml0k8npvi8h7.i.optimole.com/cb:K2_q.4551d/w:1000/h:667/q:mauto/f:best/https://freshlineexim.com/wp-content/uploads/2023/02/b0f8ee0ccf.jpg";
   const qualityImageUrl = "https://www.knpexport.com/wp-content/uploads/2023/11/large-market-stall-full-organic-vegetables-min-1536x1006.jpg";
   
-  const sections = [
-    {
-      subtitle: "WELCOME TO",
-      title: "SHREE BHUMI NATURES BEST PVT LTD",
-      text: "In 2009, our group emerged onto the scene with a clear mission: to deliver top-notch products to consumers. Our journey began with a steadfast commitment to quality. As we steadily gained recognition for our dedication to excellence, we ventured into various sectors, including the premium spices and agricultural grains exports. Over time, our relentless pursuit of superior quality propelled us to the forefront of the market, establishing Shree Bhumi as a leading name in the realm of global food exports, not only within Gujarat but throughout India.",
-      image: welcomeImageUrl,
-      hint: "premium grains",
-      reversed: false
-    },
-    {
-      subtitle: "OUR MISSION",
-      title: "DELIVERING PURITY GLOBALLY",
-      text: "Our core mission is to bridge the gap between authentic Indian farms and global kitchens. We ensure that every product, from our ground spices to our premium grains, meets the highest international food safety standards. We believe in sustainable growth that benefits both the farmers who grow our products and the consumers who trust our quality across 25+ countries.",
-      image: purityImageUrl,
-      hint: "export supply",
-      reversed: true
-    },
-    {
-      subtitle: "QUALITY ASSURANCE",
-      title: "EXCELLENCE IN EVERY BATCH",
-      text: "Shree Bhumi Natures Best (SBNB) employs state-of-the-art processing units adhering to FSSAI & ISO standards. Our transparency in the supply chain provides full traceability, ensuring that 'Natures Best' is not just a name, but a promise kept in every shipment. We offer customized packaging for retail and bulk orders, catering to specific market needs worldwide.",
-      image: qualityImageUrl,
-      hint: "quality spices",
-      reversed: false
-    }
-  ];
-
   return (
     <section id="about" className="relative">
-      {/* Dynamic Expanding WhatsApp Button */}
+      {/* Floating WhatsApp */}
       <Link 
         href="https://wa.me/919550696255" 
         target="_blank"
@@ -54,39 +27,90 @@ export function About() {
         </div>
       </Link>
 
-      {sections.map((section, idx) => (
-        <div key={idx} className={`py-16 md:py-24 ${idx % 2 !== 0 ? 'bg-primary/5' : 'bg-white'} overflow-hidden relative`}>
-          <div className="container mx-auto px-6">
-            <div className={`flex flex-col lg:flex-row items-center gap-10 md:gap-16 ${section.reversed ? 'lg:flex-row-reverse' : ''}`}>
-              <div className="lg:w-1/2">
-                <span className="text-white/70 text-lg md:text-2xl font-light tracking-[0.2em] block mb-2 md:mb-4 uppercase">
-                  {section.subtitle}
-                </span>
-                <h2 className="text-3xl md:text-5xl font-bold text-primary mb-6 md:mb-8 leading-tight">
-                  {section.title}
-                </h2>
-                <p className="text-base md:text-lg text-muted-foreground mb-4 md:mb-8 leading-relaxed text-justify">
-                  {section.text}
-                </p>
-              </div>
-              
-              <div className="lg:w-1/2 w-full relative">
-                <div className="relative z-10 rounded-none overflow-hidden shadow-xl aspect-[4/3] w-full">
-                  <Image 
-                    src={section.image} 
-                    alt={section.title} 
-                    fill
-                    className="object-cover hover:scale-105 transition-transform duration-700"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    data-ai-hint={section.hint}
-                  />
+      {/* Brand Story */}
+      <div className="py-24 bg-white overflow-hidden relative">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col lg:flex-row items-center gap-16">
+            <div className="lg:w-1/2">
+              <span className="text-primary text-xl font-bold tracking-widest block mb-4 uppercase">Who We Are</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-primary mb-8 leading-tight">Shree Bhumi Nature's Best Pvt. Ltd.</h2>
+              <div className="space-y-6 text-lg text-muted-foreground leading-relaxed text-justify">
+                <p>Rooted in the fertile lands of India, our name reflects our belief: <strong>Shree (Prosperity)</strong>, <strong>Bhumi (Mother Earth)</strong>, and <strong>Nature’s Best</strong>—Pure, Honest, and Sustainable Produce.</p>
+                <p>We are a farmer-driven agricultural bridge, connecting Indian fields directly to global markets. We ensure purity and traceability in every harvest of spices, grains, vegetables, and fruits.</p>
+                <div className="grid grid-cols-2 gap-4 mt-8">
+                  <div className="flex items-center gap-3">
+                    <Sprout className="text-secondary w-6 h-6" />
+                    <span className="font-bold text-primary">Prosperity</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Globe className="text-secondary w-6 h-6" />
+                    <span className="font-bold text-primary">Mother Earth</span>
+                  </div>
                 </div>
-                <div className={`absolute -bottom-10 ${section.reversed ? '-left-10' : '-right-10'} w-48 md:w-64 h-48 md:h-64 bg-secondary rounded-full -z-0 opacity-10 blur-3xl`} />
+              </div>
+            </div>
+            <div className="lg:w-1/2 w-full relative">
+              <div className="relative z-10 aspect-[4/3] w-full">
+                <Image src={welcomeImageUrl} alt="Our Heritage" fill className="object-cover" sizes="50vw" data-ai-hint="indian farms" />
               </div>
             </div>
           </div>
         </div>
-      ))}
+      </div>
+
+      {/* Farmer Based Model */}
+      <div className="py-24 bg-primary text-white overflow-hidden relative">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
+            <div className="lg:w-1/2">
+              <span className="text-secondary text-xl font-bold tracking-widest block mb-4 uppercase">Our Core</span>
+              <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight uppercase">The Farmer-Based Model</h2>
+              <p className="text-lg text-white/80 mb-8 leading-relaxed">We work directly with local farmer groups and organic clusters. By eliminating middlemen, we ensure fair income for our farmers and 100% traceable, fresh products for our global partners.</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {[
+                  { icon: Heart, text: "Fair Pricing" },
+                  { icon: Sprout, text: "Organic Clusters" },
+                  { icon: ShieldCheck, text: "No Middlemen" },
+                  { icon: CheckCircle2, text: "Full Traceability" }
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-4 bg-white/5 p-4 border border-white/10">
+                    <item.icon className="text-secondary w-6 h-6" />
+                    <span className="font-bold uppercase tracking-tight">{item.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="lg:w-1/2 w-full">
+              <div className="relative aspect-[4/3] w-full">
+                <Image src={purityImageUrl} alt="Farmer Network" fill className="object-cover" sizes="50vw" data-ai-hint="farmer harvesting" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Vision & Mission */}
+      <div className="py-24 bg-white border-b border-border">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <div className="p-12 border-2 border-primary/10 hover:border-primary transition-all group">
+              <h3 className="text-3xl font-bold text-primary mb-6 group-hover:text-secondary">Our Vision</h3>
+              <p className="text-lg text-muted-foreground">To become a globally trusted agricultural export brand while uplifting rural farming communities and promoting sustainable excellence across 25+ countries.</p>
+            </div>
+            <div className="p-12 border-2 border-primary/10 hover:border-primary transition-all group">
+              <h3 className="text-3xl font-bold text-primary mb-6 group-hover:text-secondary">Our Mission</h3>
+              <ul className="space-y-4">
+                {["Support farmers with fair pricing", "Promote sustainable organic farming", "Deliver premium quality produce", "Maintain global export standards"].map((item, i) => (
+                  <li key={i} className="flex items-start gap-4 text-muted-foreground">
+                    <CheckCircle2 className="text-secondary w-5 h-5 shrink-0 mt-1" />
+                    <span className="text-lg">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
@@ -110,14 +134,7 @@ export function Certifications() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-12 items-center justify-items-center">
           {logos.map((logo, i) => (
             <div key={i} className="relative w-40 h-40 transition-all duration-300">
-              <Image 
-                src={logo.url} 
-                alt={logo.name} 
-                fill 
-                className="object-contain"
-                sizes="160px"
-                priority
-              />
+              <Image src={logo.url} alt={logo.name} fill className="object-contain" sizes="160px" priority />
             </div>
           ))}
         </div>
@@ -128,43 +145,43 @@ export function Certifications() {
 
 export function WhyChooseUs() {
   const points = [
-    "Certified processing units adhering to FSSAI & ISO standards.",
-    "Competitive global pricing with flexible shipping terms.",
-    "Customized packaging options for retail and bulk orders.",
-    "Transparent supply chain with full traceability.",
-    "Customer-centric approach with 24/7 export support."
+    "Farmer-Based Sourcing for ultimate freshness.",
+    "Premium Quality Control with FSSAI & ISO compliance.",
+    "Global Export Standards for 25+ countries.",
+    "Sustainable & Organic Farming practices.",
+    "Competitive Global Pricing with flexible terms."
   ];
 
   return (
-    <section id="why-us" className="py-16 md:py-24 bg-primary text-white relative">
+    <section id="why-us" className="py-24 bg-primary text-white">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col lg:flex-row gap-12 md:gap-16 items-center">
+        <div className="flex flex-col lg:flex-row gap-16 items-center">
           <div className="lg:w-1/2">
-            <h2 className="text-3xl md:text-5xl font-bold mb-8 md:mb-12 uppercase tracking-tight">Why Choose Us?</h2>
-            <div className="space-y-4 md:space-y-6">
+            <h2 className="text-4xl md:text-5xl font-bold mb-12 uppercase tracking-tight">Why Choose Us?</h2>
+            <div className="space-y-6">
               {points.map((point, i) => (
                 <div key={i} className="flex items-start gap-4 group">
-                  <CheckCircle2 className="text-secondary w-5 h-5 md:w-6 md:h-6 group-hover:scale-110 transition-transform shrink-0 mt-1" />
-                  <p className="text-base md:text-lg text-white/80">{point}</p>
+                  <CheckCircle2 className="text-secondary w-6 h-6 shrink-0 mt-1" />
+                  <p className="text-xl text-white/80">{point}</p>
                 </div>
               ))}
             </div>
           </div>
-          <div className="lg:w-1/2 w-full grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
-            <div className="bg-white/5 p-8 md:p-10 rounded-none border border-white/10 hover:bg-white/10 transition-colors text-center md:text-left">
-              <h4 className="text-secondary text-4xl md:text-5xl font-bold mb-2 md:mb-4">24/7</h4>
-              <p className="text-white/60 text-sm md:text-base">Export Logistics Support</p>
+          <div className="lg:w-1/2 w-full grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="bg-white/5 p-10 border border-white/10 hover:bg-white/10 transition-colors text-center">
+              <h4 className="text-secondary text-5xl font-bold mb-4">24/7</h4>
+              <p className="text-white/60">Export Logistics Support</p>
             </div>
-            <div className="bg-white/5 p-8 md:p-10 rounded-none border border-white/10 hover:bg-white/10 transition-colors text-center md:text-left">
-              <h4 className="text-secondary text-4xl md:text-5xl font-bold mb-2 md:mb-4">100%</h4>
-              <p className="text-white/60 text-sm md:text-base">Natural Ingredients</p>
+            <div className="bg-white/5 p-10 border border-white/10 hover:bg-white/10 transition-colors text-center">
+              <h4 className="text-secondary text-5xl font-bold mb-4">100%</h4>
+              <p className="text-white/60">Farmer-Direct Sourcing</p>
             </div>
-            <div className="sm:col-span-2 bg-secondary p-8 md:p-10 rounded-none text-primary flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-4 md:gap-0">
+            <div className="sm:col-span-2 bg-secondary p-10 text-primary flex items-center justify-between gap-4">
               <div>
-                <h4 className="text-2xl md:text-3xl font-bold mb-1 md:mb-2">Global Network</h4>
-                <p className="text-primary/70 text-sm md:text-base">Connecting 25+ Countries</p>
+                <h4 className="text-3xl font-bold mb-2 uppercase">Global Presence</h4>
+                <p className="text-primary/70">Middle East | Europe | Asia | USA</p>
               </div>
-              <Globe className="w-12 h-12 md:w-16 md:h-16 opacity-20" />
+              <Globe className="w-16 h-16 opacity-20" />
             </div>
           </div>
         </div>
