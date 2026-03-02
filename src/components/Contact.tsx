@@ -12,18 +12,36 @@ export function Contact() {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    // Simulate API call
+    
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const company = formData.get("company");
+    const phone = formData.get("phone");
+    const message = formData.get("message");
+
+    const whatsappMessage = encodeURIComponent(
+      `*New Inquiry (SBNB Global Website)*\n\n` +
+      `*Name:* ${name}\n` +
+      `*Email:* ${email}\n` +
+      `*Company:* ${company}\n` +
+      `*Phone:* ${phone}\n` +
+      `*Message:* ${message}`
+    );
+
+    // Simulate small delay before redirect
     setTimeout(() => {
+      window.open(`https://wa.me/919550696255?text=${whatsappMessage}`, "_blank");
       setLoading(false);
       toast({
-        title: "Message Sent Successfully!",
-        description: "We will get back to you within 24 hours.",
+        title: "Redirecting to WhatsApp...",
+        description: "Our export team is ready to assist you.",
       });
       (e.target as HTMLFormElement).reset();
-    }, 1500);
+    }, 800);
   };
 
   return (
@@ -81,29 +99,29 @@ export function Contact() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-2">
                     <label className="text-sm font-semibold text-primary">Full Name</label>
-                    <Input required placeholder="Enter your name" className="bg-background border-none h-14" />
+                    <Input name="name" required placeholder="Enter your name" className="bg-background border-none h-14" />
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-semibold text-primary">Email Address</label>
-                    <Input required type="email" placeholder="email@company.com" className="bg-background border-none h-14" />
+                    <Input name="email" required type="email" placeholder="email@company.com" className="bg-background border-none h-14" />
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-2">
                     <label className="text-sm font-semibold text-primary">Company Name</label>
-                    <Input placeholder="Your Business Name" className="bg-background border-none h-14" />
+                    <Input name="company" placeholder="Your Business Name" className="bg-background border-none h-14" />
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-semibold text-primary">Phone Number</label>
-                    <Input placeholder="+1 234 567 890" className="bg-background border-none h-14" />
+                    <Input name="phone" placeholder="+91 9550696255" className="bg-background border-none h-14" />
                   </div>
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-semibold text-primary">Message</label>
-                  <Textarea required placeholder="Tell us about your requirements..." className="bg-background border-none min-h-[160px]" />
+                  <Textarea name="message" required placeholder="Tell us about your requirements..." className="bg-background border-none min-h-[160px]" />
                 </div>
-                <Button disabled={loading} size="lg" className="w-full md:w-auto px-12 h-14 bg-secondary text-primary hover:bg-primary hover:text-white">
-                  {loading ? "Sending..." : "Send Message"} <Send className="ml-2 w-4 h-4" />
+                <Button type="submit" disabled={loading} size="lg" className="w-full md:w-auto px-12 h-14 bg-secondary text-primary hover:bg-primary hover:text-white">
+                  {loading ? "Connecting..." : "Send via WhatsApp"} <Send className="ml-2 w-4 h-4" />
                 </Button>
               </form>
             </div>

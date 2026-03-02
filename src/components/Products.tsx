@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -17,13 +18,14 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
 
 const categories = ["Spices", "Grains", "Vegetables", "Fruits"];
 
 const products = [
   // Spices
   {
-    name: "Turmeric",
+    name: "Turmeric Powder",
     category: "Spices",
     image: "https://i.ibb.co/6cGv78nT/Whats-App-Image-2026-02-23-at-9-21-02-AM.jpg",
     description: "High-curcumin turmeric from sustainable Indian farms.",
@@ -31,7 +33,7 @@ const products = [
     grade: "Export Grade A"
   },
   {
-    name: "Red Chilli",
+    name: "Armoor Mirchi Powder",
     category: "Spices",
     image: "https://i.ibb.co/Xx7GcTQQ/Whats-App-Image-2026-02-23-at-10-40-03-AM.jpg",
     description: "Premium sun-dried red chilies with balanced heat and vibrant color.",
@@ -39,7 +41,7 @@ const products = [
     grade: "Premium"
   },
   {
-    name: "Coriander",
+    name: "Coriander Powder",
     category: "Spices",
     image: "https://i.ibb.co/hRJCqzkr/Whats-App-Image-2026-02-18-at-8-57-55-AM-1.jpg",
     description: "Aromatic coriander seeds cleaned and graded for global standards.",
@@ -47,12 +49,12 @@ const products = [
     grade: "Eagle"
   },
   {
-    name: "Black Pepper",
+    name: "Biryani Masala",
     category: "Spices",
-    image: "https://images.unsplash.com/photo-1599940824399-b87987cb972d?q=80&w=600",
-    description: "Bold aromatic black pepper from the Western Ghats.",
-    origin: "Kerala",
-    grade: "MG-1"
+    image: "https://i.ibb.co/0R7hNBMg/Whats-App-Image-2026-02-23-at-9-21-04-AM.jpg",
+    description: "Authentic spice blend for the perfect aromatic biryani.",
+    origin: "Hyderabad, India",
+    grade: "Premium Blend"
   },
 
   // Grains
@@ -135,8 +137,33 @@ const products = [
 ];
 
 export function Products() {
+  const { toast } = useToast();
   const [activeTab, setActiveTab] = useState("Spices");
   const filteredProducts = products.filter(p => p.category === activeTab);
+
+  const handleQuoteSubmit = (e: React.FormEvent<HTMLFormElement>, productName: string) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const company = formData.get("company");
+    const country = formData.get("country");
+    const quantity = formData.get("quantity");
+    const packaging = formData.get("packaging");
+
+    const whatsappMessage = encodeURIComponent(
+      `*Export Quote Request (SBNB Global)*\n\n` +
+      `*Product:* ${productName}\n` +
+      `*Company:* ${company}\n` +
+      `*Country:* ${country}\n` +
+      `*Est. Quantity:* ${quantity} MT\n` +
+      `*Packaging:* ${packaging}`
+    );
+
+    window.open(`https://wa.me/919550696255?text=${whatsappMessage}`, "_blank");
+    toast({
+      title: "Opening WhatsApp...",
+      description: `Requesting quote for ${productName}.`,
+    });
+  };
 
   return (
     <section id="products" className="py-24 bg-white">
@@ -192,13 +219,16 @@ export function Products() {
                               Get current pricing and capacity for <span className="font-bold text-secondary">{product.name}</span>.
                             </DialogDescription>
                           </DialogHeader>
-                          <form className="space-y-4 py-4">
+                          <form 
+                            className="space-y-4 py-4" 
+                            onSubmit={(e) => handleQuoteSubmit(e, product.name)}
+                          >
                             <div className="grid grid-cols-2 gap-4">
-                              <Input className="rounded-none h-12" placeholder="Company Name" />
-                              <Input className="rounded-none h-12" placeholder="Country" />
+                              <Input name="company" required className="rounded-none h-12" placeholder="Company Name" />
+                              <Input name="country" required className="rounded-none h-12" placeholder="Country" />
                             </div>
-                            <Input className="rounded-none h-12" placeholder="Est. Quantity (MT)" />
-                            <Textarea className="rounded-none" placeholder="Packaging requirements?" rows={4} />
+                            <Input name="quantity" required className="rounded-none h-12" placeholder="Est. Quantity (MT)" />
+                            <Textarea name="packaging" className="rounded-none" placeholder="Packaging requirements?" rows={4} />
                             <DialogFooter>
                               <Button type="submit" className="w-full bg-secondary text-white hover:bg-primary rounded-none h-14 font-bold uppercase tracking-widest">
                                 Submit Quote Request
