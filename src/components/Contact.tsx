@@ -45,82 +45,82 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-background">
-      <div className="container mx-auto px-6">
-        <div className="bg-white rounded-[3rem] shadow-2xl overflow-hidden">
+    <section id="contact" className="py-12 md:py-24 bg-background">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="bg-white rounded-3xl md:rounded-[3rem] shadow-2xl overflow-hidden border border-border/50">
           <div className="flex flex-col lg:flex-row">
-            <div className="lg:w-2/5 bg-primary p-12 md:p-16 text-white">
-              <h2 className="text-4xl font-bold mb-8">Get in Touch</h2>
-              <p className="text-white/60 mb-12 text-lg">
+            <div className="lg:w-2/5 bg-primary p-8 md:p-16 text-white">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8">Get in Touch</h2>
+              <p className="text-white/60 mb-10 md:mb-12 text-base md:text-lg">
                 Ready to take the finest Indian flavors to your market? Contact us today for wholesale enquiries.
               </p>
               
-              <div className="space-y-8">
-                <div className="flex items-center gap-6">
-                  <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center shrink-0">
-                    <Mail className="text-secondary" />
+              <div className="space-y-6 md:space-y-8">
+                <div className="flex items-center gap-4 md:gap-6">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-white/10 rounded-full flex items-center justify-center shrink-0">
+                    <Mail className="text-secondary w-5 h-5 md:w-6 md:h-6" />
                   </div>
                   <div>
-                    <p className="text-white/40 text-sm">Email Us</p>
-                    <p className="text-lg font-medium">info@sbnbglobal.com</p>
+                    <p className="text-white/40 text-[10px] md:text-sm uppercase tracking-widest font-bold">Email Us</p>
+                    <p className="text-sm md:text-lg font-medium">info@sbnbglobal.com</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-6">
-                  <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center shrink-0">
-                    <Phone className="text-secondary" />
+                <div className="flex items-center gap-4 md:gap-6">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-white/10 rounded-full flex items-center justify-center shrink-0">
+                    <Phone className="text-secondary w-5 h-5 md:w-6 md:h-6" />
                   </div>
                   <div>
-                    <p className="text-white/40 text-sm">Call Us</p>
-                    <p className="text-lg font-medium">+91 9550696255</p>
+                    <p className="text-white/40 text-[10px] md:text-sm uppercase tracking-widest font-bold">Call Us</p>
+                    <p className="text-sm md:text-lg font-medium">+91 9550696255</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-6">
-                  <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center shrink-0">
-                    <MapPin className="text-secondary" />
+                <div className="flex items-center gap-4 md:gap-6">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-white/10 rounded-full flex items-center justify-center shrink-0">
+                    <MapPin className="text-secondary w-5 h-5 md:w-6 md:h-6" />
                   </div>
                   <div>
-                    <p className="text-white/40 text-sm">Global Headquarters</p>
-                    <p className="text-lg font-medium">48/48 papaiah Yadav Nagar colony chintal Hyderabad Telangana 500055</p>
+                    <p className="text-white/40 text-[10px] md:text-sm uppercase tracking-widest font-bold">Global Headquarters</p>
+                    <p className="text-xs md:text-lg font-medium leading-tight">48/48 papaiah Yadav Nagar colony chintal Hyderabad Telangana 500055</p>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-20 pt-10 border-t border-white/10 flex gap-6">
+              <div className="mt-12 md:mt-20 pt-8 md:pt-10 border-t border-white/10 flex gap-4 md:gap-6">
                 {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
-                  <button key={i} className="p-3 bg-white/5 rounded-full hover:bg-secondary hover:text-primary transition-all">
-                    <Icon className="w-6 h-6" />
+                  <button key={i} className="p-2 md:p-3 bg-white/5 rounded-full hover:bg-secondary hover:text-primary transition-all">
+                    <Icon className="w-5 h-5 md:w-6 md:h-6" />
                   </button>
                 ))}
               </div>
             </div>
 
-            <div className="lg:w-3/5 p-12 md:p-16">
-              <form onSubmit={handleSubmit} className="space-y-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="lg:w-3/5 p-8 md:p-16">
+              <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold text-primary">Full Name</label>
-                    <Input name="name" required placeholder="Enter your name" className="bg-background border-none h-14" />
+                    <label className="text-xs md:text-sm font-semibold text-primary uppercase tracking-widest">Full Name</label>
+                    <Input name="name" required placeholder="Enter your name" className="bg-background border-border h-12 md:h-14 rounded-xl" />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold text-primary">Email Address</label>
-                    <Input name="email" required type="email" placeholder="email@company.com" className="bg-background border-none h-14" />
+                    <label className="text-xs md:text-sm font-semibold text-primary uppercase tracking-widest">Email Address</label>
+                    <Input name="email" required type="email" placeholder="email@company.com" className="bg-background border-border h-12 md:h-14 rounded-xl" />
                   </div>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold text-primary">Company Name</label>
-                    <Input name="company" placeholder="Your Business Name" className="bg-background border-none h-14" />
+                    <label className="text-xs md:text-sm font-semibold text-primary uppercase tracking-widest">Company Name</label>
+                    <Input name="company" placeholder="Your Business Name" className="bg-background border-border h-12 md:h-14 rounded-xl" />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold text-primary">Phone Number</label>
-                    <Input name="phone" placeholder="+91 9550696255" className="bg-background border-none h-14" />
+                    <label className="text-xs md:text-sm font-semibold text-primary uppercase tracking-widest">Phone Number</label>
+                    <Input name="phone" placeholder="+91 9550696255" className="bg-background border-border h-12 md:h-14 rounded-xl" />
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-semibold text-primary">Message</label>
-                  <Textarea name="message" required placeholder="Tell us about your requirements..." className="bg-background border-none min-h-[160px]" />
+                  <label className="text-xs md:text-sm font-semibold text-primary uppercase tracking-widest">Message</label>
+                  <Textarea name="message" required placeholder="Tell us about your requirements..." className="bg-background border-border min-h-[140px] md:min-h-[160px] rounded-xl" />
                 </div>
-                <Button type="submit" disabled={loading} size="lg" className="w-full md:w-auto px-12 h-14 bg-secondary text-primary hover:bg-primary hover:text-white">
+                <Button type="submit" disabled={loading} size="lg" className="w-full md:w-auto px-12 h-12 md:h-14 bg-secondary text-primary hover:bg-primary hover:text-white rounded-xl font-bold uppercase tracking-widest text-xs">
                   {loading ? "Connecting..." : "Send via WhatsApp"} <Send className="ml-2 w-4 h-4" />
                 </Button>
               </form>

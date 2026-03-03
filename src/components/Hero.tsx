@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
@@ -56,7 +57,7 @@ export function Hero() {
   }, [animating, current]);
 
   return (
-    <section id="home" className="relative h-screen w-full overflow-hidden bg-black">
+    <section id="home" className="relative h-[85vh] md:h-screen w-full overflow-hidden bg-black">
       <div className="absolute inset-0">
         <div className="absolute inset-0 z-0">
           <Image
@@ -99,16 +100,16 @@ export function Hero() {
 
       <div className="relative z-30 h-full flex flex-col items-center justify-center text-center px-6">
         <div key={`text-${current}`} className="flex flex-col items-center w-full max-w-6xl">
-          <span className="text-white/70 text-xs sm:text-sm md:text-xl font-bold tracking-[0.4em] uppercase mb-4 md:mb-6 animate-text-reveal">
+          <span className="text-white/70 text-xs sm:text-sm md:text-xl font-bold tracking-[0.2em] md:tracking-[0.4em] uppercase mb-4 md:mb-6 animate-text-reveal">
             {slides[current].welcome}
           </span>
           
-          <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white mb-8 md:mb-12 leading-[1.1] md:leading-[1.05] uppercase animate-text-reveal [animation-delay:0.1s] drop-shadow-2xl px-4">
+          <h1 className="text-2xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white mb-8 md:mb-12 leading-[1.2] md:leading-[1.05] uppercase animate-text-reveal [animation-delay:0.1s] drop-shadow-2xl px-4">
             {slides[current].title}
           </h1>
 
           <div className="flex justify-center animate-text-reveal [animation-delay:0.3s] w-full sm:w-auto">
-            <Link href="#contact" className="boton-elegante no-underline">
+            <Link href="#contact" className="boton-elegante no-underline py-3 px-8 text-sm md:text-base md:py-4 md:px-10">
               Contact Us Now
             </Link>
           </div>
@@ -142,8 +143,8 @@ export function Hero() {
               setTimeout(() => setAnimating(false), 1200);
             }}
             className={cn(
-              "h-1.5 transition-all duration-300 rounded-none",
-              i === current ? "w-12 md:w-24 bg-white" : "w-4 md:w-6 bg-white/20 hover:bg-white/50"
+              "h-1 md:h-1.5 transition-all duration-300 rounded-none",
+              i === current ? "w-8 md:w-24 bg-white" : "w-3 md:w-6 bg-white/20 hover:bg-white/50"
             )}
           />
         ))}

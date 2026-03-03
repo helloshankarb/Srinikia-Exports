@@ -34,6 +34,12 @@ export function Navbar() {
     { name: "CONTACT US", href: "/#contact" },
   ];
 
+  const productCategories = [
+    { name: "VEGETABLES", href: "/vegetables" },
+    { name: "GRAINS", href: "/grains" },
+    { name: "SPICES", href: "/spices" },
+  ];
+
   const logoUrl = "https://firebasestorage.googleapis.com/v0/b/studio-2215204146-270ef.firebasestorage.app/o/WhatsApp%20Image%202026-03-01%20at%2010.37.55%20AM.jpeg?alt=media&token=22012649-933c-4e4e-9775-dc1f1198cfe0";
 
   return (
@@ -79,21 +85,13 @@ export function Navbar() {
                     {link.name} <ChevronDown className="w-3 h-3" />
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="bg-white border-primary/10 rounded-none min-w-[200px] p-2">
-                    <DropdownMenuItem asChild>
-                      <Link href="/vegetables" className="text-xs font-bold text-primary hover:bg-primary/5 hover:text-secondary p-3 block cursor-pointer uppercase tracking-widest">
-                        Vegetables
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <Link href="/grains" className="text-xs font-bold text-primary hover:bg-primary/5 hover:text-secondary p-3 block cursor-pointer uppercase tracking-widest">
-                        Grains
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <Link href="/spices" className="text-xs font-bold text-primary hover:bg-primary/5 hover:text-secondary p-3 block cursor-pointer uppercase tracking-widest">
-                        Spices
-                      </Link>
-                    </DropdownMenuItem>
+                    {productCategories.map((cat) => (
+                      <DropdownMenuItem key={cat.name} asChild>
+                        <Link href={cat.href} className="text-xs font-bold text-primary hover:bg-primary/5 hover:text-secondary p-3 block cursor-pointer uppercase tracking-widest">
+                          {cat.name}
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
                   </DropdownMenuContent>
                 </DropdownMenu>
               ) : (
@@ -114,6 +112,7 @@ export function Navbar() {
         </div>
       </header>
 
+      {/* Mobile Navigation Drawer */}
       <div
         className={cn(
           "fixed inset-0 z-[60] bg-primary flex flex-col transition-transform duration-500 lg:hidden",
@@ -121,7 +120,7 @@ export function Navbar() {
         )}
       >
         <div className="container mx-auto px-6 py-5 flex items-center justify-between border-b border-white/10">
-          <Link href="/" onClick={() => setIsOpen(false)} className="relative h-8 w-32">
+          <Link href="/" onClick={() => setIsOpen(false)} className="relative h-8 w-32 bg-white p-1 rounded">
             <Image src={logoUrl} alt="SBNB Logo" fill className="object-contain" />
           </Link>
           <button className="text-white p-2" onClick={() => setIsOpen(false)}>
@@ -129,16 +128,31 @@ export function Navbar() {
           </button>
         </div>
 
-        <nav className="flex-1 flex flex-col items-center justify-center gap-8">
+        <nav className="flex-1 flex flex-col items-center justify-start pt-12 gap-6 overflow-y-auto px-6">
           {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className="text-2xl font-bold text-white/80 hover:text-secondary transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              {link.name}
-            </Link>
+            <div key={link.name} className="flex flex-col items-center gap-4 w-full">
+              <Link
+                href={link.href}
+                className="text-xl font-bold text-white/90 hover:text-secondary transition-colors uppercase tracking-widest"
+                onClick={() => setIsOpen(false)}
+              >
+                {link.name}
+              </Link>
+              {link.isDropdown && (
+                <div className="flex flex-col items-center gap-3 bg-white/5 w-full py-4 rounded-2xl">
+                  {productCategories.map((cat) => (
+                    <Link
+                      key={cat.name}
+                      href={cat.href}
+                      className="text-sm font-semibold text-secondary hover:text-white transition-colors"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {cat.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
         </nav>
       </div>
