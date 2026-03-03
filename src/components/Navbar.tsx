@@ -36,6 +36,7 @@ export function Navbar() {
     { name: "VEGETABLES", href: "/vegetables" },
     { name: "GRAINS", href: "/grains" },
     { name: "SPICES", href: "/spices" },
+    { name: "FRUITS", href: "/fruits" },
   ];
 
   const logoUrl = "https://firebasestorage.googleapis.com/v0/b/studio-2215204146-270ef.firebasestorage.app/o/WhatsApp%20Image%202026-03-01%20at%2010.37.55%20AM.jpeg?alt=media&token=22012649-933c-4e4e-9775-dc1f1198cfe0";
@@ -79,7 +80,7 @@ export function Navbar() {
             {navLinks.map((link) => (
               link.isDropdown ? (
                 <DropdownMenu key={link.name}>
-                  <DropdownMenuTrigger className="text-[11px] font-black text-primary hover:text-secondary transition-colors tracking-widest flex items-center gap-1 outline-none">
+                  <DropdownMenuTrigger className="text-[11px] font-black text-primary hover:text-secondary transition-colors tracking-widest flex items-center gap-1 outline-none uppercase">
                     {link.name} <ChevronDown className="w-3 h-3" />
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="bg-white border-primary/10 rounded-none min-w-[200px] p-2">

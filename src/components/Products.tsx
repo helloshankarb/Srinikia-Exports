@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -19,7 +18,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 
-const categories = ["Vegetables", "Grains", "Spices"];
+const categories = ["Vegetables", "Grains", "Spices", "Fruits"];
 
 const products = [
   // Vegetables
@@ -178,6 +177,48 @@ const products = [
     description: "Hand-picked cloves, rich in eugenol and natural aroma.",
     origin: "Southern India",
     grade: "Hand Picked"
+  },
+
+  // Fruits
+  {
+    name: "Alphonso Mangoes",
+    category: "Fruits",
+    image: "https://images.unsplash.com/photo-1553279768-865429fa0078?q=80&w=800",
+    description: "King of fruits. Rich, creamy, and tender textured mangoes.",
+    origin: "Maharashtra",
+    grade: "Grade A"
+  },
+  {
+    name: "Bhagwa Pomegranate",
+    category: "Fruits",
+    image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?q=80&w=800",
+    description: "Deep red pearls with soft seeds and high juice content.",
+    origin: "Maharashtra",
+    grade: "Export Quality"
+  },
+  {
+    name: "Cavendish Banana",
+    category: "Fruits",
+    image: "https://images.unsplash.com/photo-1603833665858-e61d17a86224?q=80&w=800",
+    description: "Large, firm, and uniform bananas for international markets.",
+    origin: "Andhra Pradesh",
+    grade: "Premium"
+  },
+  {
+    name: "Thompson Grapes",
+    category: "Fruits",
+    image: "https://images.unsplash.com/photo-1537640538966-79f369143f8f?q=80&w=800",
+    description: "Sweet seedless green grapes with crisp texture.",
+    origin: "Nashik",
+    grade: "AAA Export"
+  },
+  {
+    name: "Fresh Pink Guava",
+    category: "Fruits",
+    image: "https://images.unsplash.com/photo-1536511132770-e5088929944b?q=80&w=800",
+    description: "Aromatic pink guavas, rich in Vitamin C and fiber.",
+    origin: "Southern India",
+    grade: "Select Quality"
   }
 ];
 

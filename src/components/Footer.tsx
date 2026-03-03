@@ -41,9 +41,9 @@ export function Footer() {
           <div>
             <h4 className="text-lg font-bold mb-8 uppercase tracking-widest border-b border-secondary pb-2 inline-block">Our Focus</h4>
             <ul className="space-y-4">
-              {["Premium Spices", "Fresh Vegetables", "Sustainable Grains"].map((item) => (
+              {["Premium Spices", "Fresh Vegetables", "Sustainable Grains", "Fresh Fruits"].map((item) => (
                 <li key={item}>
-                  <Link href="#products" className="text-white/60 hover:text-secondary transition-colors flex items-center gap-2 group text-xs font-black uppercase tracking-widest">
+                  <Link href="/#products" className="text-white/60 hover:text-secondary transition-colors flex items-center gap-2 group text-xs font-black uppercase tracking-widest">
                     <ChevronRight className="w-4 h-4 text-secondary" />
                     {item}
                   </Link>
