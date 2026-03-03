@@ -34,16 +34,16 @@ export function ExportExpress() {
             </div>
           </div>
 
-          {/* Right Block - Visual Representation shifted slightly right */}
-          <div className="lg:w-2/5 relative h-[300px] lg:h-auto min-h-[400px] lg:translate-x-4 transition-transform duration-500">
+          {/* Right Block - Visual Representation shifted slightly right and aligned left to show logo */}
+          <div className="lg:w-2/5 relative h-[400px] lg:h-auto lg:translate-x-6 transition-transform duration-500">
             <Image 
               src={factoryImageUrl} 
-              alt="Global Export Express" 
+              alt="Shree Bhumi Nature's Best Factory" 
               fill 
-              className="object-cover"
+              className="object-cover object-left"
               data-ai-hint="food factory"
+              priority
             />
-            <div className="absolute inset-0 bg-black/5" />
           </div>
         </div>
       </div>
