@@ -11,27 +11,28 @@ export function ExportExpress() {
   ];
 
   return (
-    <section className="bg-foreground py-12 md:py-20 px-4 md:px-6">
+    <section className="bg-background py-12 md:py-20 px-4 md:px-6">
       <div className="container mx-auto">
-        <div className="flex flex-col lg:flex-row shadow-2xl border border-white/5">
-          {/* Left Block */}
-          <div className="lg:w-1/2 bg-primary p-8 md:p-16 flex flex-col justify-center">
-            <span className="text-secondary text-xs md:text-lg font-bold mb-3 md:mb-4 uppercase tracking-[0.2em]">
+        <div className="flex flex-col lg:flex-row shadow-2xl overflow-hidden rounded-[2rem]">
+          {/* Left Block - Styled based on the reference image */}
+          <div className="lg:w-1/2 bg-[#40b14c] p-8 md:p-16 flex flex-col justify-center text-left">
+            <span className="text-black text-sm md:text-xl font-bold mb-4 uppercase tracking-tight">
               Fresh Export Express
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-white leading-[1.1] mb-6 md:mb-8 uppercase tracking-tighter">
-              Global Fresh Grains &<br />
-              Spices Supply
+            <h2 className="text-3xl md:text-6xl font-black text-black leading-[1.1] mb-8 uppercase tracking-tighter">
+              GLOBAL FRESH FRUITS &<br />
+              VEGETABLES SUPPLY
             </h2>
-            <p className="text-white/80 text-sm md:text-lg leading-relaxed mb-8 md:mb-10 max-w-xl font-medium">
-              Driven by a passion for delivering premium quality produce, our mission 
-              is to consistently provide a wide array of naturally cultivated grains 
-              and spices, ensuring authentic flavors and nourishment worldwide.
+            <p className="text-black/70 text-base md:text-xl leading-relaxed mb-10 max-w-xl font-medium">
+              Driven by a passion for delivering fresh, high-quality produce, our mission 
+              is to consistently provide a wide array of cultivated vegetables 
+              and fruits, ensuring that our clients across the globe experience the 
+              authentic flavors and nourishment that nature offers.
             </p>
             <div>
               <Button 
                 variant="outline" 
-                className="rounded-none border-secondary text-secondary hover:bg-secondary hover:text-primary px-6 md:px-8 py-4 md:py-6 text-xs md:text-sm font-bold uppercase transition-all w-full sm:w-auto bg-transparent"
+                className="h-14 md:h-16 px-10 border-black text-black hover:bg-black hover:text-[#40b14c] rounded-xl font-bold uppercase tracking-widest text-xs transition-all bg-transparent"
               >
                 Download Brochure
               </Button>
@@ -52,7 +53,7 @@ export function ExportExpress() {
                 <span className="text-2xl sm:text-3xl md:text-6xl font-black text-primary mb-2 md:mb-4">
                   {stat.number}
                 </span>
-                <p className="text-muted-foreground text-[8px] sm:text-[10px] md:text-base leading-tight md:leading-relaxed font-bold uppercase tracking-widest">
+                <p className="text-muted-foreground text-[10px] md:text-base leading-tight md:leading-relaxed font-bold uppercase tracking-widest">
                   {stat.label}
                 </p>
               </div>
