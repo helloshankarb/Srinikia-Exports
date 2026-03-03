@@ -1,8 +1,8 @@
+
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -19,125 +19,180 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 
-const categories = ["Spices", "Grains", "Vegetables", "Fruits"];
+const categories = ["Vegetables", "Grains", "Spices"];
 
 const products = [
-  // Spices
+  // Vegetables
   {
-    name: "Turmeric Powder",
-    category: "Spices",
-    image: "https://i.ibb.co/6cGv78nT/Whats-App-Image-2026-02-23-at-9-21-02-AM.jpg",
-    description: "High-curcumin turmeric from sustainable Indian farms.",
-    origin: "Erode, Tamil Nadu",
+    name: "Fresh Tomatoes",
+    category: "Vegetables",
+    image: "https://images.unsplash.com/photo-1546470427-227c736c2841?q=80&w=800",
+    description: "Premium sun-ripened tomatoes, hand-picked for global standards.",
+    origin: "Southern India",
     grade: "Export Grade A"
   },
   {
-    name: "Armoor Mirchi Powder",
-    category: "Spices",
-    image: "https://i.ibb.co/Xx7GcTQQ/Whats-App-Image-2026-02-23-at-10-40-03-AM.jpg",
-    description: "Premium sun-dried red chilies with balanced heat and vibrant color.",
-    origin: "Guntur, Andhra Pradesh",
-    grade: "Premium"
-  },
-  {
-    name: "Coriander Powder",
-    category: "Spices",
-    image: "https://i.ibb.co/hRJCqzkr/Whats-App-Image-2026-02-18-at-8-57-55-AM-1.jpg",
-    description: "Aromatic coriander seeds cleaned and graded for global standards.",
-    origin: "Gujarat/Rajasthan",
-    grade: "Eagle"
-  },
-  {
-    name: "Biryani Masala",
-    category: "Spices",
-    image: "https://i.ibb.co/0R7hNBMg/Whats-App-Image-2026-02-23-at-9-21-04-AM.jpg",
-    description: "Authentic spice blend for the perfect aromatic biryani.",
-    origin: "Hyderabad, India",
-    grade: "Premium Blend"
-  },
-
-  // Grains
-  {
-    name: "Basmati Rice",
-    category: "Grains",
-    image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=600",
-    description: "Extra long grain aromatic Basmati rice, aged to perfection.",
-    origin: "Himalayan Foothills",
-    grade: "Super Fine"
-  },
-  {
-    name: "Premium Wheat",
-    category: "Grains",
-    image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?q=80&w=600",
-    description: "High protein durum wheat sourced directly from contract farmers.",
-    origin: "Madhya Pradesh",
-    grade: "Sharbati"
-  },
-  {
-    name: "Millets",
-    category: "Grains",
-    image: "https://images.unsplash.com/photo-1509358271058-acd22cc93898?q=80&w=600",
-    description: "Nutritious and premium ancient grains for the health-conscious global market.",
-    origin: "Maharashtra",
-    grade: "Premium Quality"
-  },
-
-  // Vegetables
-  {
-    name: "Onion",
+    name: "Red & Pink Onions",
     category: "Vegetables",
-    image: "https://images.unsplash.com/photo-1508747703725-719777637510?q=80&w=600",
-    description: "Fresh red and pink onions with excellent shelf life and pungency.",
+    image: "https://images.unsplash.com/photo-1508747703725-719777637510?q=80&w=800",
+    description: "Firm onions with excellent pungency and shelf life.",
     origin: "Nashik, Maharashtra",
-    grade: "Top Quality"
+    grade: "Premium Export"
   },
   {
-    name: "Potato",
+    name: "White Garlic",
     category: "Vegetables",
-    image: "https://images.unsplash.com/photo-1518977676601-b53f02ac6d31?q=80&w=600",
-    description: "Firm and fresh potatoes suitable for retail and industrial use.",
+    image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?q=80&w=800",
+    description: "Bold cloves with strong aroma and natural nourishment.",
+    origin: "Madhya Pradesh",
+    grade: "Superior"
+  },
+  {
+    name: "Natural Potatoes",
+    category: "Vegetables",
+    image: "https://images.unsplash.com/photo-1518977676601-b53f02ac6d31?q=80&w=800",
+    description: "Multi-purpose export quality potatoes with minimal moisture.",
     origin: "Uttar Pradesh",
     grade: "Grade A"
   },
   {
-    name: "Garlic",
+    name: "Mixed Peppers",
     category: "Vegetables",
-    image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?q=80&w=600",
-    description: "Bold white garlic cloves with strong aroma and long shelf life.",
-    origin: "Gujarat",
-    grade: "Export Size"
+    image: "https://images.unsplash.com/photo-1592924357228-91a4bcadcfea?q=80&w=800",
+    description: "Crisp and colorful peppers grown under natural sunlight.",
+    origin: "Karnataka",
+    grade: "Top Selection"
+  },
+  {
+    name: "Fresh Carrots",
+    category: "Vegetables",
+    image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?q=80&w=800",
+    description: "Sweet and crunchy carrots, cleaned and graded for export.",
+    origin: "Ooty, Tamil Nadu",
+    grade: "Premium"
   },
 
-  // Fruits
+  // Grains
   {
-    name: "Mango",
-    category: "Fruits",
-    image: "https://images.unsplash.com/photo-1553279768-865429fa0078?q=80&w=600",
-    description: "Premium Alphonso and Kesar mangoes from GI-tagged farms.",
-    origin: "Ratnagiri/Gujarat",
-    grade: "Premium Export"
+    name: "Aromatic Rice",
+    category: "Grains",
+    image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=800",
+    description: "Premium aged rice varieties with exquisite aroma and length.",
+    origin: "North India",
+    grade: "Supreme"
   },
   {
-    name: "Pomegranate",
-    category: "Fruits",
-    image: "https://images.unsplash.com/photo-1615484477778-ca3b77940c25?q=80&w=600",
-    description: "Bhagwa variety pomegranates known for deep red arils and sweetness.",
-    origin: "Solapur, Maharashtra",
-    grade: "A-Grade"
+    name: "Premium Wheat",
+    category: "Grains",
+    image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?q=80&w=800",
+    description: "High-protein wheat grains sourced directly from farm clusters.",
+    origin: "Central India",
+    grade: "Sharbati"
   },
   {
-    name: "Banana",
-    category: "Fruits",
-    image: "https://images.unsplash.com/photo-1603833665858-e61d17a86224?q=80&w=600",
-    description: "Cavendish bananas carefully harvested and packed for global sea transit.",
+    name: "Golden Corn",
+    category: "Grains",
+    image: "https://images.unsplash.com/photo-1551754655-cd27e38d2076?q=80&w=800",
+    description: "Cleaned and dried yellow maize for food and feed industries.",
     origin: "Andhra Pradesh",
-    grade: "Export Standard"
+    grade: "Standard Export"
+  },
+  {
+    name: "Pearl Barley",
+    category: "Grains",
+    image: "https://images.unsplash.com/photo-1601314112185-334be10878ca?q=80&w=800",
+    description: "Nutritious barley grains processed to preserve natural goodness.",
+    origin: "Rajasthan",
+    grade: "Export Ready"
+  },
+  {
+    name: "Finger Millets",
+    category: "Grains",
+    image: "https://images.unsplash.com/photo-1509358271058-acd22cc93898?q=80&w=800",
+    description: "Traditional superfood grains for the health-conscious global market.",
+    origin: "Maharashtra",
+    grade: "Premium"
+  },
+  {
+    name: "Sorghum Grains",
+    category: "Grains",
+    image: "https://images.unsplash.com/photo-1605333396915-47ed6b68a00e?q=80&w=800",
+    description: "Naturally grown white and yellow sorghum, rich in minerals.",
+    origin: "Telangana",
+    grade: "High Quality"
+  },
+
+  // Spices
+  {
+    name: "Black Pepper",
+    category: "Spices",
+    image: "https://images.unsplash.com/photo-1532431110031-15b565780598?q=80&w=800",
+    description: "Bold and pungent black peppercorns from the Western Ghats.",
+    origin: "Kerala",
+    grade: "Bold 550GL"
+  },
+  {
+    name: "Turmeric Powder",
+    category: "Spices",
+    image: "https://images.unsplash.com/photo-1698556735172-1b5b3cd9d2ce?q=80&w=800",
+    description: "High-curcumin turmeric, sun-dried and finely polished.",
+    origin: "Salem/Erode",
+    grade: "Export A-Grade"
+  },
+  {
+    name: "Cumin Seeds",
+    category: "Spices",
+    image: "https://images.unsplash.com/photo-1530588625438-7c5504971c2a?q=80&w=800",
+    description: "Aromatic and machine-cleaned cumin seeds with high oil content.",
+    origin: "Gujarat",
+    grade: "Premium Eagle"
+  },
+  {
+    name: "Green Cardamom",
+    category: "Spices",
+    image: "https://images.unsplash.com/photo-1599307734173-03027b872b53?q=80&w=800",
+    description: "Exquisite green cardamom pods with intense natural fragrance.",
+    origin: "Idukki, Kerala",
+    grade: "8mm+ Bold"
+  },
+  {
+    name: "Cinnamon Bark",
+    category: "Spices",
+    image: "https://images.unsplash.com/photo-1614734892376-74e6f6630044?q=80&w=800",
+    description: "Pure and sweet cinnamon sticks, perfect for gourmet exports.",
+    origin: "Southern India",
+    grade: "Penta/Alba"
+  },
+  {
+    name: "Dried Red Chili",
+    category: "Spices",
+    image: "https://images.unsplash.com/photo-1607672632458-9eb56696346b?q=80&w=800",
+    description: "Fiery red chilies with natural color and heat levels.",
+    origin: "Guntur, Andhra Pradesh",
+    grade: "Premium Teja"
+  },
+  {
+    name: "Natural Cloves",
+    category: "Spices",
+    image: "https://images.unsplash.com/photo-1590401819777-628f8059868e?q=80&w=800",
+    description: "Hand-picked cloves, rich in eugenol and natural aroma.",
+    origin: "Southern India",
+    grade: "Hand Picked"
   }
 ];
 
 export function Products() {
   const { toast } = useToast();
-  const [activeTab, setActiveTab] = useState("Spices");
+  const [activeTab, setActiveTab] = useState("Vegetables");
+
+  useEffect(() => {
+    const handleTabChange = (event: any) => {
+      setActiveTab(event.detail);
+    };
+    window.addEventListener('changeProductTab', handleTabChange);
+    return () => window.removeEventListener('changeProductTab', handleTabChange);
+  }, []);
+
   const filteredProducts = products.filter(p => p.category === activeTab);
 
   const handleQuoteSubmit = (e: React.FormEvent<HTMLFormElement>, productName: string) => {
@@ -171,11 +226,11 @@ export function Products() {
           <Badge variant="secondary" className="mb-4 rounded-none bg-secondary text-white">Our Product Categories</Badge>
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 uppercase">Nature's Best Produce</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            From Indian Farms to Global Tables—pure, traceable, and premium quality agricultural exports.
+            Direct from Indian farm clusters to global markets—pure, traceable, and premium quality agricultural exports.
           </p>
         </div>
 
-        <Tabs defaultValue="Spices" className="w-full" onValueChange={setActiveTab}>
+        <Tabs value={activeTab} className="w-full" onValueChange={setActiveTab}>
           <div className="flex justify-center mb-12">
             <TabsList className="bg-muted p-1 rounded-none h-auto flex-wrap">
               {categories.map(cat => (
@@ -203,6 +258,10 @@ export function Products() {
                   <div className="p-6">
                     <h3 className="text-xl font-bold text-primary mb-2 uppercase tracking-tight">{product.name}</h3>
                     <p className="text-muted-foreground text-sm mb-4 line-clamp-2">{product.description}</p>
+                    <div className="flex flex-col gap-1 mb-6">
+                       <p className="text-[10px] font-bold text-secondary uppercase tracking-widest">Origin: {product.origin}</p>
+                       <p className="text-[10px] font-bold text-primary/40 uppercase tracking-widest">Grade: {product.grade}</p>
+                    </div>
                     
                     <div className="flex gap-3">
                       <Dialog>

@@ -1,10 +1,17 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, Facebook, Twitter, Instagram, Linkedin, Youtube, Phone, Mail } from "lucide-react";
+import { Menu, X, Facebook, Instagram, Linkedin, Phone, Mail, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,10 +25,17 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleCategoryClick = (category: string) => {
+    // Dispatch a custom event to change the product tab
+    const event = new CustomEvent('changeProductTab', { detail: category });
+    window.dispatchEvent(event);
+    setIsOpen(false);
+  };
+
   const navLinks = [
     { name: "HOME", href: "#home" },
     { name: "ABOUT US", href: "#about" },
-    { name: "PRODUCTS", href: "#products" },
+    { name: "PRODUCTS", href: "#products", isDropdown: true },
     { name: "FARMER NETWORK", href: "#farmer-network" },
     { name: "EXPORT & QUALITY", href: "#why-us" },
     { name: "CONTACT US", href: "#contact" },
@@ -66,13 +80,34 @@ export function Navbar() {
 
           <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-[11px] font-black text-primary hover:text-secondary transition-colors nav-link-underline tracking-widest"
-              >
-                {link.name}
-              </Link>
+              link.isDropdown ? (
+                <DropdownMenu key={link.name}>
+                  <DropdownMenuTrigger className="text-[11px] font-black text-primary hover:text-secondary transition-colors tracking-widest flex items-center gap-1 outline-none">
+                    {link.name} <ChevronDown className="w-3 h-3" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="bg-white border-primary/10 rounded-none min-w-[200px] p-2">
+                    {["Vegetables", "Grains", "Spices"].map((cat) => (
+                      <DropdownMenuItem key={cat} asChild>
+                        <Link 
+                          href="#products" 
+                          onClick={() => handleCategoryClick(cat)}
+                          className="text-xs font-bold text-primary hover:bg-primary/5 hover:text-secondary p-3 block cursor-pointer uppercase tracking-widest"
+                        >
+                          {cat}
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-[11px] font-black text-primary hover:text-secondary transition-colors nav-link-underline tracking-widest"
+                >
+                  {link.name}
+                </Link>
+              )
             ))}
           </nav>
 
@@ -108,6 +143,18 @@ export function Navbar() {
               {link.name}
             </Link>
           ))}
+          <div className="flex flex-col items-center gap-4 pt-4">
+             {["Vegetables", "Grains", "Spices"].map((cat) => (
+              <Link 
+                key={cat}
+                href="#products" 
+                onClick={() => handleCategoryClick(cat)}
+                className="text-lg font-medium text-white/60 hover:text-secondary"
+              >
+                {cat}
+              </Link>
+            ))}
+          </div>
         </nav>
       </div>
     </>
