@@ -11,7 +11,7 @@ export function ExportExpress() {
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row shadow-2xl overflow-hidden rounded-[2rem]">
           {/* Left Block - Branding & CTA */}
-          <div className="lg:w-3/5 bg-[#40b14c] p-8 md:p-16 flex flex-col justify-center text-left">
+          <div className="lg:w-3/5 bg-[#40b14c] p-8 md:p-16 flex flex-col justify-center text-left z-10">
             <span className="text-black text-sm md:text-xl font-bold mb-4 uppercase tracking-tight">
               Fresh Export Express
             </span>
@@ -34,8 +34,8 @@ export function ExportExpress() {
             </div>
           </div>
 
-          {/* Right Block - Visual Representation */}
-          <div className="lg:w-2/5 relative h-[300px] lg:h-auto min-h-[400px]">
+          {/* Right Block - Visual Representation shifted slightly right */}
+          <div className="lg:w-2/5 relative h-[300px] lg:h-auto min-h-[400px] lg:translate-x-4 transition-transform duration-500">
             <Image 
               src={factoryImageUrl} 
               alt="Global Export Express" 
