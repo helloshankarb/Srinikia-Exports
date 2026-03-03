@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, Phone, MapPin, ChevronRight, Globe } from "lucide-react";
+import { Mail, Phone, MapPin, ChevronRight } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -27,7 +27,7 @@ export function Footer() {
           <div>
             <h4 className="text-lg font-bold mb-8 uppercase tracking-widest border-b border-secondary pb-2 inline-block">Quick Links</h4>
             <ul className="space-y-4">
-              {["Home", "About Us", "Products", "Farmer Network", "Export & Quality"].map((item) => (
+              {["Home", "About Us", "Products", "Export & Quality"].map((item) => (
                 <li key={item}>
                   <Link href={`#${item.toLowerCase().replace(' ', '-')}`} className="text-white/60 hover:text-secondary transition-colors flex items-center gap-2 group text-xs font-black uppercase tracking-widest">
                     <ChevronRight className="w-4 h-4 text-secondary" />
@@ -41,7 +41,7 @@ export function Footer() {
           <div>
             <h4 className="text-lg font-bold mb-8 uppercase tracking-widest border-b border-secondary pb-2 inline-block">Our Focus</h4>
             <ul className="space-y-4">
-              {["Premium Spices", "Fresh Vegetables", "Sustainable Grains", "Premium Fruits"].map((item) => (
+              {["Premium Spices", "Fresh Vegetables", "Sustainable Grains"].map((item) => (
                 <li key={item}>
                   <Link href="#products" className="text-white/60 hover:text-secondary transition-colors flex items-center gap-2 group text-xs font-black uppercase tracking-widest">
                     <ChevronRight className="w-4 h-4 text-secondary" />
