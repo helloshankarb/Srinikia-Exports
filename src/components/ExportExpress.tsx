@@ -1,10 +1,11 @@
-
 "use client";
 
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 export function ExportExpress() {
+  const factoryImageUrl = "https://firebasestorage.googleapis.com/v0/b/studio-2215204146-270ef.firebasestorage.app/o/shreebhumi%2FChatGPT%20Image%20Mar%201%2C%202026%2C%2010_41_41%20PM.png?alt=media&token=1036b945-2f29-45d7-901b-795db1f7de99";
+
   return (
     <section className="bg-background py-12 md:py-20 px-4 md:px-6">
       <div className="container mx-auto">
@@ -33,14 +34,14 @@ export function ExportExpress() {
             </div>
           </div>
 
-          {/* Right Block - Visual Representation (Replaces numbers) */}
+          {/* Right Block - Visual Representation */}
           <div className="lg:w-2/5 relative h-[300px] lg:h-auto min-h-[400px]">
             <Image 
-              src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1200" 
+              src={factoryImageUrl} 
               alt="Global Export Express" 
               fill 
               className="object-cover"
-              data-ai-hint="cargo ship"
+              data-ai-hint="food factory"
             />
             <div className="absolute inset-0 bg-black/5" />
           </div>
