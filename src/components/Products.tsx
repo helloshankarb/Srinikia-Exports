@@ -191,7 +191,7 @@ const products = [
   {
     name: "Bhagwa Pomegranate",
     category: "Fruits",
-    image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?q=80&w=800",
+    image: "https://images.unsplash.com/photo-1541344999736-83eca872f2fa?q=80&w=800",
     description: "Deep red pearls with soft seeds and high juice content.",
     origin: "Maharashtra",
     grade: "Export Quality"
