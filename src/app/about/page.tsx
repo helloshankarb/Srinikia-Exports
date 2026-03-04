@@ -36,10 +36,10 @@ export default function AboutPage() {
               <h2 className="text-4xl font-bold text-primary mb-8 uppercase tracking-tight">Experience the taste of premium-quality exports</h2>
               <div className="space-y-6 text-lg text-muted-foreground leading-relaxed text-justify">
                 <p>
-                  At <strong>Fresh Line Exim</strong>, we pride ourselves on exporting the freshest, tastiest produce from Nashik. With a deep focus on quality control and customer satisfaction, we provide end-to-end services, including procurement, packing, and delivery. Trust us to deliver excellence in every shipment.
+                  At <strong>Shree Bhumi Nature's Best Pvt Ltd</strong>, we pride ourselves on exporting the freshest, tastiest produce from Nashik. With a deep focus on quality control and customer satisfaction, we provide end-to-end services, including procurement, packing, and delivery. Trust us to deliver excellence in every shipment.
                 </p>
                 <p>
-                  Fresh Line Exim is a premier export company based in Nashik, India that specializes in the export of premium-quality fresh fruits and vegetables. We are dedicated to providing our customers with the freshest and most flavorful produce sourced from the fertile lands of India.
+                  <strong>Shree Bhumi Nature's Best Pvt Ltd</strong> is a premier export company based in Nashik, India that specializes in the export of premium-quality fresh fruits and vegetables. We are dedicated to providing our customers with the freshest and most flavorful produce sourced from the fertile lands of India.
                 </p>
                 <p>
                   Our product range includes a wide selection of <strong>ONIONs, TOMATOs, GRAPEs, POMEGRANATEs, GREEN CHILLIEs, LEMONs, WATERMELONs and MUSKMELONs</strong>. We provide both premium export quality and domestic quality products to meet your packaging specifications.
@@ -66,7 +66,7 @@ export default function AboutPage() {
                 SPICES EXPORTER
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed mb-10 text-justify">
-                At Fresh Line Exim, we understand the importance of timely and reliable delivery. That’s why we offer a complete start-to-end service that includes product procurement, sorting and grading, standard packing, container booking, and CHA services. With our extensive network and years of experience, we ensure that your orders are fulfilled quickly and efficiently.
+                At <strong>Shree Bhumi Nature's Best Pvt Ltd</strong>, we understand the importance of timely and reliable delivery. That’s why we offer a complete start-to-end service that includes product procurement, sorting and grading, standard packing, container booking, and CHA services. With our extensive network and years of experience, we ensure that your orders are fulfilled quickly and efficiently.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[
@@ -85,7 +85,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="lg:w-2/5 relative h-[400px] lg:h-auto">
-              <Image src={factoryImageUrl} alt="Fresh Line Exim Processing Facility" fill className="object-cover" />
+              <Image src={factoryImageUrl} alt="SBNB Processing Facility" fill className="object-cover" />
             </div>
           </div>
         </div>
@@ -96,12 +96,12 @@ export default function AboutPage() {
         <div className="container mx-auto px-6 text-center">
           <div className="max-w-4xl mx-auto">
             <p className="text-xl text-muted-foreground leading-relaxed mb-12">
-              Our team is dedicated to providing the best possible service and ensuring the satisfaction of our clients. Whether you’re looking for a steady supply of high-quality produce or a one-time shipment, Fresh Line Exim is here to help.
+              Our team is dedicated to providing the best possible service and ensuring the satisfaction of our clients. Whether you’re looking for a steady supply of high-quality produce or a one-time shipment, <strong>Shree Bhumi Nature's Best Pvt Ltd</strong> is here to help.
             </p>
             <div className="p-10 bg-primary text-white rounded-[2rem] shadow-xl relative overflow-hidden group">
                <div className="relative z-10">
                  <h3 className="text-2xl md:text-4xl font-black mb-8 uppercase tracking-tighter">
-                   Choose Fresh Line Exim for premium-quality, fresh fruits and vegetables, and a seamless export experience.
+                   Choose Shree Bhumi Nature's Best for premium-quality, fresh fruits and vegetables, and a seamless export experience.
                  </h3>
                  <Button className="bg-secondary text-primary hover:bg-white hover:text-primary rounded-full px-12 h-16 font-bold uppercase tracking-widest text-sm transition-all shadow-lg">
                    Contact us today
@@ -117,12 +117,12 @@ export default function AboutPage() {
       <section className="py-24 bg-primary/5">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-black text-primary uppercase tracking-tighter">Meet the Directors of Fresh Line Exim</h2>
+            <h2 className="text-4xl font-black text-primary uppercase tracking-tighter">Meet the Directors of Shree Bhumi Nature's Best</h2>
             <div className="w-24 h-1.5 bg-secondary mx-auto mt-6" />
           </div>
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-lg text-muted-foreground leading-relaxed mb-12">
-              At Fresh Line Exim, we are proud to be led by a talented and experienced team of directors who are dedicated to bringing the finest produce from Nashik to customers worldwide. With decades of combined experience in the export industry, our directors are well-equipped to guide Fresh Line Exim to continued success.
+              At <strong>Shree Bhumi Nature's Best Pvt Ltd</strong>, we are proud to be led by a talented and experienced team of directors who are dedicated to bringing the finest produce from Nashik to customers worldwide. With decades of combined experience in the export industry, our directors are well-equipped to guide our company to continued success.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="bg-white p-12 rounded-[2rem] shadow-xl border border-primary/5 transition-transform hover:-translate-y-2">
