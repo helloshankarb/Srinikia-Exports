@@ -95,7 +95,7 @@ export function About() {
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <div className="lg:w-1/2">
               <span className="text-primary text-xl font-bold tracking-widest block mb-4 uppercase">Reliability & Standards</span>
-              <h2 className="text-4xl md:text-5xl font-bold text-primary mb-8 leading-tight">Excellence in Every Shipment</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-primary mb-8 leading-tight">Excellence in Every shipment</h2>
               <ul className="space-y-4 mb-8">
                 {["Direct-from-farm procurement for maximum shelf-life", "FSSAI, APEDA, and ISO compliant processing", "Rigorous moisture and volatile oil content testing", "Customized bulk and retail packaging solutions"].map((item, i) => (
                   <li key={i} className="flex items-start gap-4 text-muted-foreground">
@@ -125,7 +125,8 @@ export function Certifications() {
     { name: "APEDA", url: "https://jbrotherexports.com/wp-content/uploads/2023/02/Apeda.png" },
     { name: "FSSAI", url: "https://jbrotherexports.com/wp-content/uploads/2023/02/fssai.png" },
     { name: "Spices Board India", url: "https://jbrotherexports.com/wp-content/uploads/2023/02/spices-board-india.png" },
-    { name: "MSME", url: "https://jbrotherexports.com/wp-content/uploads/2023/02/MSME.png" }
+    { name: "MSME", url: "https://jbrotherexports.com/wp-content/uploads/2023/02/MSME.png" },
+    { name: "Global Quality", url: "https://etimg.etb2bimg.com/photo/86677229.cms" }
   ];
 
   return (
@@ -136,10 +137,10 @@ export function Certifications() {
             AUTHORITATIVE <span className="text-secondary">CERTIFICATIONS</span>
           </h2>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 items-center justify-items-center">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-12 items-center justify-items-center">
           {logos.map((logo, i) => (
-            <div key={i} className="relative w-40 h-40 transition-all duration-300">
-              <Image src={logo.url} alt={logo.name} fill className="object-contain" sizes="160px" priority />
+            <div key={i} className="relative w-32 h-32 transition-all duration-300">
+              <Image src={logo.url} alt={logo.name} fill className="object-contain" sizes="128px" priority />
             </div>
           ))}
         </div>
