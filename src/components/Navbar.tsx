@@ -51,7 +51,7 @@ export function Navbar() {
     { name: "Products", href: "/#products", isDropdown: true },
     { name: "Export & Quality", href: "/#why-choose-us" },
     { name: "Contact", href: "/#contact" },
-    { name: "Company Profile", href: "/company-profile.pdf", target: "_blank" },
+    { name: "Company Profile", href: "/company-profile" },
   ];
 
   const productCategories = [
@@ -136,8 +136,6 @@ export function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  target={link.target}
-                  rel={link.target ? "noopener noreferrer" : undefined}
                   className="text-sm font-medium text-primary hover:text-secondary transition-colors link-underline"
                 >
                   {link.name}
@@ -179,8 +177,6 @@ export function Navbar() {
             <div key={link.name} className="w-full">
               <Link
                 href={link.href}
-                target={link.target}
-                rel={link.target ? "noopener noreferrer" : undefined}
                 className="text-lg font-medium text-white/90 hover:text-secondary transition-colors block py-3"
                 onClick={() => setIsOpen(false)}
               >

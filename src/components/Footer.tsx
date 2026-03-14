@@ -71,10 +71,10 @@ export function Footer() {
                 { name: "Products", href: "/#products" },
                 { name: "Export & Quality", href: "/#why-choose-us" },
                 { name: "Contact", href: "/#contact" },
-                { name: "Company Profile", href: "/company-profile.pdf", target: "_blank" }
+                { name: "Company Profile", href: "/company-profile" }
               ].map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} target={item.target} rel={item.target ? "noopener noreferrer" : undefined} className="text-white hover:text-secondary text-sm transition-colors">
+                  <Link href={item.href} className="text-white hover:text-secondary text-sm transition-colors">
                     {item.name}
                   </Link>
                 </li>
