@@ -133,7 +133,7 @@ export function Footer() {
                 </div>
                 <div>
                   <p className="text-white/60 text-xs uppercase tracking-wide mb-1">Email</p>
-                  <a href="mailto:Shreebhuminaturesbest@gmail.com" className="text-white text-sm hover:text-secondary transition-colors">ShreebhumiNaturesbest@gmail.com</a>
+                  <a href="mailto:info@shreebhuminaturesbest.com" className="text-white text-sm hover:text-secondary transition-colors">info@shreebhuminaturesbest.com</a>
                 </div>
               </li>
             </ul>

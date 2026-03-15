@@ -85,9 +85,9 @@ export function Navbar() {
               <Phone className="w-4 h-4" />
               <span>+91 9550696255</span>
             </a>
-            <a href="mailto:ShreebhumiNaturesbest@gmail.com" className="flex items-center gap-2 hover:text-secondary transition-colors">
+            <a href="mailto:info@shreebhuminaturesbest.com" className="flex items-center gap-2 hover:text-secondary transition-colors">
               <Mail className="w-4 h-4" />
-              <span>info@sbnbglobal.com</span>
+              <span>info@shreebhuminaturesbest.com</span>
             </a>
           </div>
           <div className="text-sm text-white/70">

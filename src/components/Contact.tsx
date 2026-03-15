@@ -70,8 +70,8 @@ export function Contact() {
                   <Mail className="w-5 h-5 text-secondary shrink-0" />
                   <div>
                     <p className="text-white/40 text-xs uppercase tracking-wider font-semibold mb-1">Email</p>
-                    <a href="mailto:Shreebhuminaturesbest@gmail.com" className="text-sm text-white/80 hover:text-secondary">
-                      ShreebhumiNaturesbest@gmail.com
+                    <a href="mailto:info@shreebhuminaturesbest.com" className="text-sm text-white/80 hover:text-secondary">
+                      info@shreebhuminaturesbest.com
                     </a>
                   </div>
                 </div>
