@@ -18,10 +18,10 @@ const spices = [
     grade: "Bold 550GL"
   },
   {
-    name: "Turmeric Powder",
+    name: "Turmeric",
     image: "/spices/Turmeric Powder.jpg",
     description: "High-curcumin turmeric, sun-dried and finely polished.",
-    origin: "Salem/Erode",
+    origin: "Nizamabad, Telangana",
     grade: "Export A-Grade"
   },
   {
